@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "q001",
+    "categoria": "Armazenagem",
+    "nivel": "Básico",
+    "pergunta": "Qual é a importância de organizar o estoque por categorias e datas de validade?",
+    "alternativas": {
+      "A": "Facilita o acesso e reduz desperdícios por vencimento.",
+      "B": "Garante que apenas produtos caros fiquem à frente.",
+      "C": "Serve apenas para estética do ambiente.",
+      "D": "Não tem relevância operacional."
+    },
+    "correta": "A",
+    "explicacao": "Organizar por categorias e validades ajuda a aplicar o método PEPS, evita perdas por vencimento e agiliza a conferência."
+  },
+  {
+    "id": "q002",
+    "categoria": "Segurança",
+    "nivel": "Básico",
+    "pergunta": "Por que é essencial bloquear o acesso de pessoas não autorizadas ao estoque?",
+    "alternativas": {
+      "A": "Para manter segredo sobre a arrumação do estoque.",
+      "B": "Para reduzir furtos e garantir a integridade dos produtos.",
+      "C": "Para dificultar a entrada de fornecedores.",
+      "D": "Para evitar que colaboradores peçam itens."
+    },
+    "correta": "B",
+    "explicacao": "O controle de acesso previne furtos e avarias, além de proteger colaboradores e produtos em áreas sensíveis."
+  },
+  {
+    "id": "q003",
+    "categoria": "Rastreabilidade",
+    "nivel": "Intermediário",
+    "pergunta": "Qual procedimento deve ser seguido ao encontrar um produto sem etiqueta de identificação?",
+    "alternativas": {
+      "A": "Descartar imediatamente o item.",
+      "B": "Adicionar uma etiqueta genérica para reaproveitar.",
+      "C": "Registrar a ocorrência e rastrear a origem antes de recolocar em estoque.",
+      "D": "Ignorar e manter o item na prateleira."
+    },
+    "correta": "C",
+    "explicacao": "Itens sem identificação comprometem a rastreabilidade; é preciso registrar, identificar a origem e corrigir antes de disponibilizar."
+  },
+  {
+    "id": "q004",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a melhor prática ao lidar com produtos avariados mas ainda utilizáveis?",
+    "alternativas": {
+      "A": "Descartá-los para evitar riscos legais.",
+      "B": "Registrar, avaliar e destiná-los a reaproveitamento ou doação conforme política da empresa.",
+      "C": "Devolver ao fornecedor sem análise.",
+      "D": "Vender a preço normal para reduzir perdas."
+    },
+    "correta": "B",
+    "explicacao": "A avaliação formal identifica se o produto pode ser reaproveitado ou doado, reduzindo perdas e cumprindo normas."
+  },
+  {
+    "id": "q005",
+    "categoria": "Comunicação",
+    "nivel": "Básico",
+    "pergunta": "Como uma boa comunicação entre turnos pode prevenir perdas?",
+    "alternativas": {
+      "A": "Permite criticar o trabalho do turno anterior.",
+      "B": "Evita duplicidade de pedidos e garante continuidade de processos críticos.",
+      "C": "Serve apenas para registrar atrasos.",
+      "D": "Não influencia a prevenção de perdas."
+    },
+    "correta": "B",
+    "explicacao": "Relatórios claros e repasses de informações reduzem erros e garantem que ações de prevenção sejam mantidas pelos turnos seguintes."
+  },
+  {
+    "id": "q006",
+    "categoria": "Auditoria",
+    "nivel": "Avançado",
+    "pergunta": "Por que auditorias periódicas são essenciais no controle de inventário?",
+    "alternativas": {
+      "A": "Apenas para cumprir exigências legais.",
+      "B": "Para detectar discrepâncias, fraudes e corrigir processos falhos.",
+      "C": "Para reduzir carga de trabalho das equipes.",
+      "D": "Não são necessárias se o estoque for pequeno."
+    },
+    "correta": "B",
+    "explicacao": "Auditorias identificam variações e fraudes, permitindo ajustar procedimentos e reduzir perdas futuras."
+  },
+  {
+    "id": "q007",
+    "categoria": "Indicadores",
+    "nivel": "Intermediário",
+    "pergunta": "Qual indicador ajuda a medir a eficiência da prevenção de perdas físicas?",
+    "alternativas": {
+      "A": "Custo por unidade produzida.",
+      "B": "Índice de avarias e quebras por período.",
+      "C": "Tempo médio de atendimento ao cliente.",
+      "D": "Volume de vendas diárias."
+    },
+    "correta": "B",
+    "explicacao": "O índice de avarias e quebras mostra a proporção de produtos perdidos por danos, orientando ações de melhoria."
+  },
+  {
+    "id": "q008",
+    "categoria": "Cultura",
+    "nivel": "Básico",
+    "pergunta": "Por que é importante promover uma cultura de prevenção de perdas na empresa?",
+    "alternativas": {
+      "A": "Porque incentiva competição entre áreas.",
+      "B": "Porque engaja todos os colaboradores na responsabilidade de evitar desperdícios.",
+      "C": "Serve apenas para marketing interno.",
+      "D": "Não impacta a rotina dos colaboradores."
+    },
+    "correta": "B",
+    "explicacao": "Uma cultura forte engaja colaboradores a identificar riscos e propor soluções, reduzindo perdas de forma sustentável."
+  },
+  {
+    "id": "q009",
+    "categoria": "Operação",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a melhor maneira de lidar com divergências durante a conferência de mercadorias?",
+    "alternativas": {
+      "A": "Ignorar pequenas diferenças para agilizar o processo.",
+      "B": "Registrar imediatamente a divergência e investigar a causa.",
+      "C": "Ajustar o sistema para refletir o que foi recebido, sem registro.",
+      "D": "Devolver toda a remessa ao fornecedor."
+    },
+    "correta": "B",
+    "explicacao": "Registrar e investigar divergências evita prejuízos futuros e corrige falhas no processo de recebimento."
+  },
+  {
+    "id": "q010",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Básico",
+    "pergunta": "Qual atitude contribui para reduzir avarias durante o manuseio de produtos?",
+    "alternativas": {
+      "A": "Transportar várias caixas de uma só vez para economizar tempo.",
+      "B": "Utilizar equipamentos adequados e seguir normas de empilhamento.",
+      "C": "Deixar itens pesados em prateleiras altas.",
+      "D": "Empurrar caixas com o pé para movimentá-las."
+    },
+    "correta": "B",
+    "explicacao": "Equipamentos e técnicas corretas evitam quedas e quebras, preservando a integridade dos produtos."
+  },
+  {
+    "id": "q011",
+    "categoria": "Armazenagem",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a vantagem de aplicar o método PEPS (Primeiro a Entrar, Primeiro a Sair) no estoque?",
+    "alternativas": {
+      "A": "Reduz a rotatividade de produtos.",
+      "B": "Garante que os itens mais antigos sejam utilizados primeiro, evitando vencimentos.",
+      "C": "Aumenta o inventário parado.",
+      "D": "Não tem efeito sobre a prevenção de perdas."
+    },
+    "correta": "B",
+    "explicacao": "O método PEPS minimiza vencimentos ao priorizar a saída de produtos mais antigos, mantendo o estoque saudável."
+  },
+  {
+    "id": "q012",
+    "categoria": "Segurança",
+    "nivel": "Avançado",
+    "pergunta": "Qual medida ajuda a prevenir roubos internos em áreas de armazenagem?",
+    "alternativas": {
+      "A": "Permitir livre circulação sem monitoramento.",
+      "B": "Instalar câmeras, controlar acesso e realizar inventários-surpresa.",
+      "C": "Eliminar processos de auditoria.",
+      "D": "Confiar apenas na palavra dos colaboradores."
+    },
+    "correta": "B",
+    "explicacao": "Monitoramento e auditorias inibem furtos, promovem responsabilidade e identificam desvios rapidamente."
+  },
+  {
+    "id": "q013",
+    "categoria": "Rastreabilidade",
+    "nivel": "Básico",
+    "pergunta": "O que significa rastreabilidade em processos logísticos?",
+    "alternativas": {
+      "A": "Capacidade de localizar um produto desde sua origem até o destino.",
+      "B": "Registrar apenas a saída de produtos.",
+      "C": "Manter sigilo sobre fornecedores.",
+      "D": "Evitar registrar etapas de produção."
+    },
+    "correta": "A",
+    "explicacao": "Rastreabilidade é acompanhar o histórico, localização e uso de um item para garantir controle e segurança."
+  },
+  {
+    "id": "q014",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Básico",
+    "pergunta": "Como deve ser o destino de resíduos que não podem ser reaproveitados?",
+    "alternativas": {
+      "A": "Descartar junto com lixo comum.",
+      "B": "Separar e encaminhar conforme legislação ambiental local.",
+      "C": "Queimar em local aberto para economizar.",
+      "D": "Armazenar indefinidamente na empresa."
+    },
+    "correta": "B",
+    "explicacao": "Resíduos devem ser segregados e descartados conforme normas ambientais para evitar multas e impactos negativos."
+  },
+  {
+    "id": "q015",
+    "categoria": "Comunicação",
+    "nivel": "Intermediário",
+    "pergunta": "Em caso de quebra de equipamento de segurança, qual deve ser a primeira ação?",
+    "alternativas": {
+      "A": "Continuar utilizando o equipamento até o fim do turno.",
+      "B": "Reportar imediatamente ao responsável e registrar em livro de ocorrências.",
+      "C": "Esperar um colega consertar.",
+      "D": "Ignorar e buscar outro equipamento."
+    },
+    "correta": "B",
+    "explicacao": "Comunicar e registrar falhas garante reposição rápida e evita riscos à segurança e à operação."
+  },
+  {
+    "id": "q016",
+    "categoria": "Auditoria",
+    "nivel": "Intermediário",
+    "pergunta": "Como as auditorias contribuem para a melhoria contínua?",
+    "alternativas": {
+      "A": "Punindo colaboradores que cometem erros.",
+      "B": "Identificando pontos de melhoria e orientando ajustes em processos.",
+      "C": "Aumentando a burocracia sem benefícios.",
+      "D": "Apenas contabilizando perdas."
+    },
+    "correta": "B",
+    "explicacao": "Auditorias levantam oportunidades de melhoria e reforçam boas práticas, retroalimentando o ciclo de prevenção."
+  },
+  {
+    "id": "q017",
+    "categoria": "Indicadores",
+    "nivel": "Avançado",
+    "pergunta": "O que significa um alto giro de estoque em termos de prevenção de perdas?",
+    "alternativas": {
+      "A": "Produtos permanecem pouco tempo armazenados, reduzindo riscos de vencimento e avarias.",
+      "B": "Maior probabilidade de erros de conferência.",
+      "C": "Indica excesso de compras e acúmulo de inventário.",
+      "D": "Não tem relação com prevenção."
+    },
+    "correta": "A",
+    "explicacao": "Giro alto significa rotatividade rápida, minimizando perdas por prazo e otimizando espaço."
+  },
+  {
+    "id": "q018",
+    "categoria": "Cultura",
+    "nivel": "Intermediário",
+    "pergunta": "Qual ação incentiva a cultura de prevenção entre equipes?",
+    "alternativas": {
+      "A": "Recompensar somente líderes.",
+      "B": "Compartilhar resultados de redução de perdas e reconhecer esforços coletivos.",
+      "C": "Publicar falhas individuais.",
+      "D": "Restringir informações sobre perdas."
+    },
+    "correta": "B",
+    "explicacao": "Transparência e reconhecimento engajam as equipes e fortalecem a cultura de prevenção de perdas."
+  },
+  {
+    "id": "q019",
+    "categoria": "Operação",
+    "nivel": "Avançado",
+    "pergunta": "Qual procedimento minimiza erros no lançamento de notas fiscais no sistema?",
+    "alternativas": {
+      "A": "Lançar as notas manualmente sem conferência.",
+      "B": "Conferir documentos com o físico e usar dupla checagem antes do registro.",
+      "C": "Registrar apenas no final do mês.",
+      "D": "Utilizar códigos genéricos para simplificar a entrada."
+    },
+    "correta": "B",
+    "explicacao": "A conferência física e a dupla checagem reduzem erros de lançamento, prevenindo divergências e perdas financeiras."
+  },
+  {
+    "id": "q020",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Intermediário",
+    "pergunta": "Como ações de treinamento podem reduzir desperdícios?",
+    "alternativas": {
+      "A": "Treinando apenas novos colaboradores.",
+      "B": "Atualizando toda a equipe sobre melhores práticas de manuseio e armazenamento.",
+      "C": "Focando apenas em teorias, sem prática.",
+      "D": "Limitando a participação para evitar gastos."
+    },
+    "correta": "B",
+    "explicacao": "Treinamentos contínuos difundem técnicas adequadas e reduzem acidentes e desperdícios."
+  },
+  {
+    "id": "q021",
+    "categoria": "Armazenagem",
+    "nivel": "Avançado",
+    "pergunta": "Qual cuidado deve ser tomado ao empilhar pallets com produtos frágeis?",
+    "alternativas": {
+      "A": "Empilhar o máximo possível para ganhar espaço.",
+      "B": "Respeitar limites de peso e utilizar separadores adequados.",
+      "C": "Colocar produtos pesados por cima.",
+      "D": "Dispensar uso de cintas ou filmes plásticos."
+    },
+    "correta": "B",
+    "explicacao": "Limites de peso e separadores evitam esmagamentos e quedas, protegendo produtos frágeis."
+  },
+  {
+    "id": "q022",
+    "categoria": "Segurança",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é o principal motivo para manter rotas de emergência desobstruídas?",
+    "alternativas": {
+      "A": "Facilitar a movimentação de mercadorias.",
+      "B": "Garantir evacuação rápida e segura em caso de incidentes.",
+      "C": "Guardar itens de última hora.",
+      "D": "Economizar espaço de armazenamento."
+    },
+    "correta": "B",
+    "explicacao": "Rotas de emergência livres salvam vidas em situações de incêndio ou outros acidentes."
+  },
+  {
+    "id": "q023",
+    "categoria": "Rastreabilidade",
+    "nivel": "Avançado",
+    "pergunta": "Por que é importante registrar o lote e a data de produção ao receber mercadorias?",
+    "alternativas": {
+      "A": "Porque aumenta o trabalho burocrático.",
+      "B": "Para permitir recall eficiente e investigação em caso de problemas de qualidade.",
+      "C": "Para definir preços de venda.",
+      "D": "Não é necessário se o fornecedor for de confiança."
+    },
+    "correta": "B",
+    "explicacao": "Lotes e datas permitem rastrear produtos específicos em recalls, garantindo segurança ao consumidor e conformidade legal."
+  },
+  {
+    "id": "q024",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Avançado",
+    "pergunta": "O que caracteriza o descarte responsável de produtos químicos?",
+    "alternativas": {
+      "A": "Descartar em qualquer coletor de lixo comum.",
+      "B": "Seguir normas de saúde, segurança e meio ambiente e contratar empresa especializada.",
+      "C": "Diluir no esgoto para reduzir concentração.",
+      "D": "Guardar indefinidamente em depósitos."
+    },
+    "correta": "B",
+    "explicacao": "Produtos químicos exigem destinação adequada para evitar contaminação e penalidades legais."
+  },
+  {
+    "id": "q025",
+    "categoria": "Comunicação",
+    "nivel": "Avançado",
+    "pergunta": "Como o feedback constante contribui para prevenção de perdas?",
+    "alternativas": {
+      "A": "Desmotiva a equipe ao apontar erros.",
+      "B": "Permite correções imediatas e aprendizado contínuo.",
+      "C": "Deve ser reservado apenas a reuniões anuais.",
+      "D": "Não impacta os resultados."
+    },
+    "correta": "B",
+    "explicacao": "Feedback contínuo corrige falhas rapidamente e incentiva a adoção de práticas corretas, evitando perdas."
+  },
+  {
+    "id": "q026",
+    "categoria": "Auditoria",
+    "nivel": "Básico",
+    "pergunta": "Qual é a diferença entre inventário rotativo e inventário anual?",
+    "alternativas": {
+      "A": "Rotativo verifica pequenas partes do estoque periodicamente; anual conta todo o estoque de uma só vez.",
+      "B": "Rotativo é feito uma vez ao ano e anual todos os meses.",
+      "C": "Rotativo é mais demorado que o anual.",
+      "D": "Não há diferença, são termos equivalentes."
+    },
+    "correta": "A",
+    "explicacao": "Inventário rotativo distribui contagens ao longo do tempo, enquanto o anual é uma verificação completa feita em um momento específico."
+  },
+  {
+    "id": "q027",
+    "categoria": "Indicadores",
+    "nivel": "Básico",
+    "pergunta": "O que é 'shrink' (quebra operacional) no varejo?",
+    "alternativas": {
+      "A": "Crescimento do estoque além do planejado.",
+      "B": "Diferença entre o estoque registrado e o real, causada por perdas e furtos.",
+      "C": "Aumento das vendas em determinado período.",
+      "D": "Entrada de novos produtos no portfólio."
+    },
+    "correta": "B",
+    "explicacao": "Shrink é a perda de estoque por furtos, erros ou desperdícios, medido pela diferença entre o estoque teórico e o físico."
+  },
+  {
+    "id": "q028",
+    "categoria": "Cultura",
+    "nivel": "Avançado",
+    "pergunta": "Como a liderança influencia a cultura de prevenção de perdas?",
+    "alternativas": {
+      "A": "Apenas delegando responsabilidades.",
+      "B": "Dando exemplo, definindo metas claras e promovendo alinhamento constante.",
+      "C": "Omitindo resultados negativos.",
+      "D": "Punindo severamente qualquer falha."
+    },
+    "correta": "B",
+    "explicacao": "Líderes devem demonstrar compromisso com a prevenção, comunicar expectativas e apoiar a equipe para criar uma cultura sólida."
+  },
+  {
+    "id": "q029",
+    "categoria": "Operação",
+    "nivel": "Básico",
+    "pergunta": "Por que o registro imediato de ocorrências (quebras, desvios) é importante?",
+    "alternativas": {
+      "A": "Para ocupar tempo dos colaboradores.",
+      "B": "Para permitir ações corretivas rápidas e evitar repetição de erros.",
+      "C": "Para aumentar a burocracia.",
+      "D": "Não tem importância se a perda for pequena."
+    },
+    "correta": "B",
+    "explicacao": "Registros imediatos possibilitam investigar causas e implementar medidas preventivas antes que perdas se tornem recorrentes."
+  },
+  {
+    "id": "q030",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Avançado",
+    "pergunta": "Qual técnica ajuda a reduzir desperdícios em processos produtivos?",
+    "alternativas": {
+      "A": "Produzir além da demanda para ter margem.",
+      "B": "Aplicar o Lean Manufacturing para eliminar atividades sem valor agregado.",
+      "C": "Aumentar a complexidade dos processos.",
+      "D": "Substituir equipamentos por versões mais antigas."
+    },
+    "correta": "B",
+    "explicacao": "O lean foca na eliminação de desperdícios (tempo, movimento, estoque) aumentando eficiência e reduzindo perdas."
+  },
+  {
+    "id": "q031",
+    "categoria": "Armazenagem",
+    "nivel": "Básico",
+    "pergunta": "Por que é importante manter corredores de circulação organizados e livres de obstáculos?",
+    "alternativas": {
+      "A": "Para impressionar visitantes.",
+      "B": "Para facilitar o fluxo seguro de pessoas e equipamentos e evitar acidentes.",
+      "C": "Para armazenar mais produtos temporariamente.",
+      "D": "Para esconder produtos de alto valor."
+    },
+    "correta": "B",
+    "explicacao": "Corredores livres reduzem riscos de colisões e quedas, garantindo segurança e eficiência na movimentação."
+  },
+  {
+    "id": "q032",
+    "categoria": "Segurança",
+    "nivel": "Básico",
+    "pergunta": "Qual EPI é fundamental para quem trabalha movimentando cargas pesadas?",
+    "alternativas": {
+      "A": "Luvas e calçados de segurança.",
+      "B": "Máscara de solda.",
+      "C": "Protetor auricular.",
+      "D": "Touca descartável."
+    },
+    "correta": "A",
+    "explicacao": "Luvas protegem contra cortes e calçados de segurança evitam esmagamento, sendo essenciais no manuseio de cargas pesadas."
+  },
+  {
+    "id": "q033",
+    "categoria": "Rastreabilidade",
+    "nivel": "Intermediário",
+    "pergunta": "Como o uso de códigos de barras e QR Codes ajuda na prevenção de perdas?",
+    "alternativas": {
+      "A": "Facilita roubos ao identificar produtos caros.",
+      "B": "Aumenta a precisão no controle e reduz erros de digitação.",
+      "C": "Serve apenas para fins estéticos.",
+      "D": "Substitui a necessidade de inventários."
+    },
+    "correta": "B",
+    "explicacao": "Códigos automáticos reduzem falhas humanas, agilizam processos e garantem rastreabilidade exata."
+  },
+  {
+    "id": "q034",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Intermediário",
+    "pergunta": "Ao reutilizar embalagens para envio, o que deve ser verificado?",
+    "alternativas": {
+      "A": "A estética da embalagem.",
+      "B": "Integridade, limpeza e adequação ao produto.",
+      "C": "A marca impressa na caixa.",
+      "D": "Nada, desde que seja reutilizada."
+    },
+    "correta": "B",
+    "explicacao": "Verificar se a embalagem suporta o novo conteúdo evita danos e garante uma logística segura."
+  },
+  {
+    "id": "q035",
+    "categoria": "Comunicação",
+    "nivel": "Básico",
+    "pergunta": "Por que instruções de trabalho padronizadas são importantes?",
+    "alternativas": {
+      "A": "Para limitar a autonomia dos funcionários.",
+      "B": "Para garantir que todos executem tarefas da mesma forma, reduzindo erros e perdas.",
+      "C": "Para aumentar a complexidade do trabalho.",
+      "D": "Não são necessárias em processos simples."
+    },
+    "correta": "B",
+    "explicacao": "Padronização reduz variações e incertezas, tornando os processos mais seguros e eficientes."
+  },
+  {
+    "id": "q036",
+    "categoria": "Auditoria",
+    "nivel": "Avançado",
+    "pergunta": "Como a segregação de funções ajuda a prevenir fraudes?",
+    "alternativas": {
+      "A": "Centralizando tarefas críticas em uma única pessoa.",
+      "B": "Dividindo responsabilidades de forma que ninguém tenha controle total do processo.",
+      "C": "Contratando mais pessoas sem definir papéis.",
+      "D": "Utilizando senhas compartilhadas."
+    },
+    "correta": "B",
+    "explicacao": "Separar tarefas evita que uma pessoa realize fraude sem detecção, aumentando a transparência e controle."
+  },
+  {
+    "id": "q037",
+    "categoria": "Indicadores",
+    "nivel": "Intermediário",
+    "pergunta": "Qual indicador monitora o tempo de reposição de estoque e impacta a prevenção de rupturas?",
+    "alternativas": {
+      "A": "ROI (Retorno sobre investimento).",
+      "B": "Lead time de fornecimento.",
+      "C": "Lucro bruto.",
+      "D": "Margem de contribuição."
+    },
+    "correta": "B",
+    "explicacao": "O lead time mede o tempo entre o pedido e a entrega, orientando ajustes para evitar falta de produtos."
+  },
+  {
+    "id": "q038",
+    "categoria": "Cultura",
+    "nivel": "Básico",
+    "pergunta": "Como engajar novos colaboradores na cultura de prevenção de perdas desde o onboarding?",
+    "alternativas": {
+      "A": "Adiar treinamentos para depois do período de experiência.",
+      "B": "Inserir módulos sobre prevenção nas integrações iniciais e apresentar exemplos reais.",
+      "C": "Focar apenas em aspectos técnicos do cargo.",
+      "D": "Encorajar que aprendam sozinhos com o tempo."
+    },
+    "correta": "B",
+    "explicacao": "Treinamentos iniciais reforçam a importância da prevenção e formam hábitos corretos desde o começo."
+  },
+  {
+    "id": "q039",
+    "categoria": "Operação",
+    "nivel": "Básico",
+    "pergunta": "O que deve ser feito ao identificar embalagens danificadas no recebimento?",
+    "alternativas": {
+      "A": "Aceitar e armazenar normalmente.",
+      "B": "Registrar, comunicar o fornecedor e avaliar danos internos antes de aceitar.",
+      "C": "Reembalar sem avisar ninguém.",
+      "D": "Descartar no local de recebimento."
+    },
+    "correta": "B",
+    "explicacao": "Notificar e avaliar evita que produtos danificados entrem no estoque e permite negociar com o fornecedor."
+  },
+  {
+    "id": "q040",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Básico",
+    "pergunta": "Qual prática reduz desperdício de energia elétrica em áreas de armazenagem?",
+    "alternativas": {
+      "A": "Manter todas as luzes ligadas 24 horas.",
+      "B": "Instalar sensores de presença e usar iluminação eficiente.",
+      "C": "Substituir lâmpadas por modelos menos potentes sem análise.",
+      "D": "Desligar sistemas de refrigeração."
+    },
+    "correta": "B",
+    "explicacao": "Sensores e lâmpadas eficientes reduzem consumo sem comprometer a segurança, contribuindo para menor desperdício."
+  },
+  {
+    "id": "q041",
+    "categoria": "Armazenagem",
+    "nivel": "Avançado",
+    "pergunta": "Por que é importante calcular a capacidade de carga de prateleiras e estruturas de armazenagem?",
+    "alternativas": {
+      "A": "Para colocar o máximo de peso possível.",
+      "B": "Para evitar colapso da estrutura e garantir segurança de pessoas e produtos.",
+      "C": "Para reduzir custos com materiais.",
+      "D": "Não é necessário se as estruturas forem novas."
+    },
+    "correta": "B",
+    "explicacao": "Sobrecarga de prateleiras pode causar acidentes graves; calcular capacidade garante armazenagem segura."
+  },
+  {
+    "id": "q042",
+    "categoria": "Segurança",
+    "nivel": "Intermediário",
+    "pergunta": "Qual procedimento deve ser seguido em caso de derramamento de produto químico?",
+    "alternativas": {
+      "A": "Ignorar se o volume for pequeno.",
+      "B": "Isolar a área, utilizar EPIs adequados e seguir o plano de contenção estabelecido.",
+      "C": "Diluir com água e varrer.",
+      "D": "Delegar a um colaborador qualquer."
+    },
+    "correta": "B",
+    "explicacao": "Planos de contenção garantem manejo seguro de derramamentos, evitando contaminação e acidentes."
+  },
+  {
+    "id": "q043",
+    "categoria": "Rastreabilidade",
+    "nivel": "Avançado",
+    "pergunta": "Como os sistemas RFID podem melhorar a acuracidade do inventário?",
+    "alternativas": {
+      "A": "Eliminando a necessidade de registro de entradas e saídas.",
+      "B": "Permitem leituras automáticas de múltiplos itens, atualizando o estoque em tempo real.",
+      "C": "Servem apenas para identificar caixas grandes.",
+      "D": "São menos eficientes que contagem manual."
+    },
+    "correta": "B",
+    "explicacao": "RFID agiliza a leitura simultânea de vários itens, reduzindo erros e proporcionando visibilidade em tempo real."
+  },
+  {
+    "id": "q044",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Básico",
+    "pergunta": "O que é logística reversa?",
+    "alternativas": {
+      "A": "Processo de enviar produtos para frente na cadeia.",
+      "B": "Fluxo de retorno de produtos e materiais para reaproveitamento, reciclagem ou descarte adequado.",
+      "C": "Substituição de fornecedores.",
+      "D": "Envio de produtos com defeito para clientes."
+    },
+    "correta": "B",
+    "explicacao": "Logística reversa trata do retorno de materiais para reaproveitamento, reciclagem ou descarte, reduzindo impactos e perdas."
+  },
+  {
+    "id": "q045",
+    "categoria": "Comunicação",
+    "nivel": "Avançado",
+    "pergunta": "Por que registrar procedimentos em checklist beneficia o dia a dia?",
+    "alternativas": {
+      "A": "Torna o trabalho repetitivo e cansativo.",
+      "B": "Assegura que etapas críticas não sejam esquecidas e facilita auditorias.",
+      "C": "É útil apenas para iniciantes.",
+      "D": "Substitui a necessidade de treinamento."
+    },
+    "correta": "B",
+    "explicacao": "Checklists padronizam tarefas, reduzem falhas e servem como documentação para auditorias e treinamentos."
+  },
+  {
+    "id": "q046",
+    "categoria": "Auditoria",
+    "nivel": "Intermediário",
+    "pergunta": "Em uma auditoria, o que significa amostragem?",
+    "alternativas": {
+      "A": "Auditar 100% dos itens.",
+      "B": "Verificar uma parte representativa do total para inferir sobre o todo.",
+      "C": "Ignorar itens com baixo valor.",
+      "D": "Escolher itens aleatórios sem critério."
+    },
+    "correta": "B",
+    "explicacao": "Amostragem permite avaliar a conformidade com menor esforço, desde que critérios estatísticos sejam seguidos."
+  },
+  {
+    "id": "q047",
+    "categoria": "Indicadores",
+    "nivel": "Básico",
+    "pergunta": "Por que acompanhar o indicador de giro de estoque evita perdas financeiras?",
+    "alternativas": {
+      "A": "Porque mostra quanto o estoque ocupa de espaço físico.",
+      "B": "Porque ajuda a ajustar compras, evitando excesso e vencimentos.",
+      "C": "Porque aumenta a complexidade do controle.",
+      "D": "Porque demonstra a eficiência dos vendedores."
+    },
+    "correta": "B",
+    "explicacao": "Controlar o giro evita capital parado e perda por vencimento, ajustando compras à demanda real."
+  },
+  {
+    "id": "q048",
+    "categoria": "Cultura",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é o papel dos líderes na comunicação de resultados de prevenção de perdas?",
+    "alternativas": {
+      "A": "Esconder resultados para evitar pressão.",
+      "B": "Compartilhar conquistas e desafios, promovendo transparência e aprendizado.",
+      "C": "Divulgar apenas quando houver perdas grandes.",
+      "D": "Deixar a comunicação a cargo de terceiros."
+    },
+    "correta": "B",
+    "explicacao": "Transparência fortalece confiança e estimula a participação de todos na busca por melhorias."
+  },
+  {
+    "id": "q049",
+    "categoria": "Operação",
+    "nivel": "Intermediário",
+    "pergunta": "Qual ferramenta digital pode auxiliar na conferência e reduzir erros?",
+    "alternativas": {
+      "A": "Planilhas impressas.",
+      "B": "Leitores de código de barras integrados ao sistema.",
+      "C": "Anotações em papéis soltos.",
+      "D": "Câmeras de monitoramento."
+    },
+    "correta": "B",
+    "explicacao": "Leitores integrados agilizam conferência, eliminam transcrições e diminuem falhas humanas."
+  },
+  {
+    "id": "q050",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Avançado",
+    "pergunta": "Como a manutenção preventiva de equipamentos ajuda na prevenção de perdas?",
+    "alternativas": {
+      "A": "Aumentando os custos de operação.",
+      "B": "Reduzindo paradas não planejadas e evitando avarias de produtos durante falhas.",
+      "C": "Impedindo a modernização do parque fabril.",
+      "D": "Não influencia na prevenção de perdas."
+    },
+    "correta": "B",
+    "explicacao": "Manutenção preventiva garante equipamentos em bom estado, evitando falhas que causariam danos a produtos e perdas de produção."
+  },
+  {
+    "id": "q051",
+    "categoria": "Armazenagem",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a melhor prática ao armazenar produtos inflamáveis?",
+    "alternativas": {
+      "A": "Misturar com produtos alimentícios.",
+      "B": "Armazenar em local ventilado, sinalizado e com equipamentos de combate a incêndio.",
+      "C": "Guardar em qualquer prateleira vazia.",
+      "D": "Empilhar com produtos pesados por cima."
+    },
+    "correta": "B",
+    "explicacao": "Produtos inflamáveis exigem áreas específicas com ventilação, sinalização e extintores adequados para prevenir acidentes."
+  },
+  {
+    "id": "q052",
+    "categoria": "Segurança",
+    "nivel": "Avançado",
+    "pergunta": "O que deve conter um plano de emergência para incêndios em estoque?",
+    "alternativas": {
+      "A": "Lista de itens valiosos a salvar primeiro.",
+      "B": "Procedimentos de evacuação, pontos de encontro, responsabilidades e contato de autoridades.",
+      "C": "Informações confidenciais sobre fornecedores.",
+      "D": "Instruções para retomar o trabalho imediatamente."
+    },
+    "correta": "B",
+    "explicacao": "Um plano de emergência bem elaborado orienta ações durante incêndios, protegendo vidas e minimizando danos."
+  },
+  {
+    "id": "q053",
+    "categoria": "Rastreabilidade",
+    "nivel": "Básico",
+    "pergunta": "Por que registrar devoluções de clientes com dados detalhados?",
+    "alternativas": {
+      "A": "Para reutilizar os produtos sem análise.",
+      "B": "Para rastrear lotes, identificar causas de devolução e prevenir recorrências.",
+      "C": "Para punir os clientes.",
+      "D": "Não há necessidade se o valor for baixo."
+    },
+    "correta": "B",
+    "explicacao": "Registros detalhados permitem analisar padrões de devolução, corrigir problemas e evitar novas perdas."
+  },
+  {
+    "id": "q054",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Intermediário",
+    "pergunta": "O que deve ser considerado ao definir destinos para produtos próximos ao vencimento?",
+    "alternativas": {
+      "A": "Descartá-los imediatamente.",
+      "B": "Planejar promoções, doações ou produção interna dentro do prazo legal.",
+      "C": "Aumentar o preço de venda.",
+      "D": "Armazenar até vencer."
+    },
+    "correta": "B",
+    "explicacao": "Ações de remarcação ou doação reduzem perdas, desde que observados requisitos legais e de qualidade."
+  },
+  {
+    "id": "q055",
+    "categoria": "Comunicação",
+    "nivel": "Intermediário",
+    "pergunta": "Qual ferramenta visual ajuda a sinalizar riscos no ambiente de trabalho?",
+    "alternativas": {
+      "A": "Cor da parede.",
+      "B": "Etiquetas e placas de sinalização padrão.",
+      "C": "Relatórios financeiros.",
+      "D": "Planos de marketing."
+    },
+    "correta": "B",
+    "explicacao": "Sinalização visual clara alerta colaboradores sobre riscos e procedimentos, prevenindo acidentes e perdas."
+  },
+  {
+    "id": "q056",
+    "categoria": "Auditoria",
+    "nivel": "Intermediário",
+    "pergunta": "Por que separar fisicamente itens novos de devoluções no estoque?",
+    "alternativas": {
+      "A": "Para ocupar mais espaço.",
+      "B": "Para evitar confusão e garantir que devoluções sejam verificadas antes de retornar ao inventário.",
+      "C": "Para misturar produtos e acelerar vendas.",
+      "D": "Não faz diferença logística."
+    },
+    "correta": "B",
+    "explicacao": "Separar devoluções evita reentrada de itens defeituosos ou fora de padrão no estoque regular."
+  },
+  {
+    "id": "q057",
+    "categoria": "Indicadores",
+    "nivel": "Avançado",
+    "pergunta": "O que indica um aumento repentino no índice de perdas operacionais?",
+    "alternativas": {
+      "A": "Melhoria de processos.",
+      "B": "Possível falha de controles, desvio ou mudança nos procedimentos.",
+      "C": "Aumento de vendas.",
+      "D": "Nada, é apenas variação normal."
+    },
+    "correta": "B",
+    "explicacao": "Variações significativas em indicadores exigem investigação imediata para identificar causas e corrigir desvios."
+  },
+  {
+    "id": "q058",
+    "categoria": "Cultura",
+    "nivel": "Avançado",
+    "pergunta": "Como lidar com colaboradores que resistem a novas práticas de prevenção de perdas?",
+    "alternativas": {
+      "A": "Ignorar a resistência e seguir em frente.",
+      "B": "Dialogar, explicar os benefícios e envolver os colaboradores nas soluções.",
+      "C": "Repreender publicamente.",
+      "D": "Substituir imediatamente por novos funcionários."
+    },
+    "correta": "B",
+    "explicacao": "Envolver e explicar cria entendimento e adesão às mudanças, fortalecendo a cultura de prevenção."
+  },
+  {
+    "id": "q059",
+    "categoria": "Operação",
+    "nivel": "Avançado",
+    "pergunta": "Qual ação melhora a acuracidade na separação de pedidos?",
+    "alternativas": {
+      "A": "Separar rapidamente sem conferência.",
+      "B": "Usar conferência dupla ou sistemas de pick-to-light para reduzir erros.",
+      "C": "Empacotar itens com antecedência.",
+      "D": "Delegar a um único colaborador para evitar comunicação."
+    },
+    "correta": "B",
+    "explicacao": "Sistemas que apoiam o separador e conferência dupla garantem pedidos corretos e reduzem retrabalhos."
+  },
+  {
+    "id": "q060",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Intermediário",
+    "pergunta": "Como o monitoramento de temperatura e umidade pode evitar perdas?",
+    "alternativas": {
+      "A": "Não interfere no estado dos produtos.",
+      "B": "Mantém condições ideais de armazenamento, evitando danos por calor ou umidade excessiva.",
+      "C": "Serve apenas para controle de energia.",
+      "D": "É útil apenas em ambientes externos."
+    },
+    "correta": "B",
+    "explicacao": "Alguns produtos são sensíveis a variações; monitorar e controlar o ambiente evita deterioração e desperdício."
+  },
+  {
+    "id": "q061",
+    "categoria": "Armazenagem",
+    "nivel": "Intermediário",
+    "pergunta": "Por que utilizar mapas de calor (heatmaps) em armazéns?",
+    "alternativas": {
+      "A": "Para decorar o ambiente.",
+      "B": "Para identificar áreas de maior circulação e otimizar layout e reposição.",
+      "C": "Para reduzir iluminação.",
+      "D": "Não tem utilidade prática."
+    },
+    "correta": "B",
+    "explicacao": "Heatmaps revelam pontos de congestionamento, permitindo organizar layout para reduzir choques e perdas de tempo."
+  },
+  {
+    "id": "q062",
+    "categoria": "Segurança",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a função do treinamento de brigada de incêndio em empresas?",
+    "alternativas": {
+      "A": "Treinar colaboradores para operarem equipamentos complexos.",
+      "B": "Preparar colaboradores para agir rapidamente em emergências, minimizando danos e salvando vidas.",
+      "C": "Aumentar a burocracia sem objetivo.",
+      "D": "Substituir o corpo de bombeiros."
+    },
+    "correta": "B",
+    "explicacao": "Brigadistas treinados respondem prontamente a emergências, controlando incêndios iniciais até a chegada de profissionais."
+  },
+  {
+    "id": "q063",
+    "categoria": "Rastreabilidade",
+    "nivel": "Avançado",
+    "pergunta": "Como sistemas integrados (ERP/WMS) contribuem para a rastreabilidade?",
+    "alternativas": {
+      "A": "Criando silos de informação.",
+      "B": "Permitem registro único e visibilidade end-to-end das movimentações de estoque.",
+      "C": "Tornam o processo mais lento.",
+      "D": "Impedem a customização de processos."
+    },
+    "correta": "B",
+    "explicacao": "Integração de sistemas mantém dados sincronizados e rastreáveis, facilitando auditorias e evitando perdas por inconsistências."
+  },
+  {
+    "id": "q064",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Avançado",
+    "pergunta": "Qual é o benefício de implementar programas de reciclagem interna?",
+    "alternativas": {
+      "A": "Aumentar o volume de resíduos.",
+      "B": "Reduzir custos de descarte e gerar receita com venda de materiais recicláveis.",
+      "C": "Complicar a logística.",
+      "D": "Não traz benefícios econômicos ou ambientais."
+    },
+    "correta": "B",
+    "explicacao": "Reciclagem interna aproveita materiais, reduz custos de descarte e pode gerar receita, além de ser sustentável."
+  },
+  {
+    "id": "q065",
+    "categoria": "Comunicação",
+    "nivel": "Avançado",
+    "pergunta": "Como dashboards em tempo real ajudam na tomada de decisão?",
+    "alternativas": {
+      "A": "Poluem a tela com muitas informações.",
+      "B": "Disponibilizam indicadores atuais, permitindo ações imediatas para corrigir desvios.",
+      "C": "Substituem relatórios formais.",
+      "D": "São úteis apenas para a diretoria."
+    },
+    "correta": "B",
+    "explicacao": "Informação atualizada melhora a velocidade de reação e evita que pequenos problemas se tornem grandes perdas."
+  },
+  {
+    "id": "q066",
+    "categoria": "Auditoria",
+    "nivel": "Avançado",
+    "pergunta": "Por que é importante auditar também fornecedores?",
+    "alternativas": {
+      "A": "Para intimidá-los.",
+      "B": "Para garantir que cumpram padrões de qualidade e prevenir problemas no recebimento.",
+      "C": "Porque a empresa gosta de inspeções.",
+      "D": "Não é responsabilidade da empresa."
+    },
+    "correta": "B",
+    "explicacao": "Auditorias em fornecedores asseguram que procedimentos estão alinhados, evitando falhas que gerariam perdas internas."
+  },
+  {
+    "id": "q067",
+    "categoria": "Indicadores",
+    "nivel": "Intermediário",
+    "pergunta": "Qual indicador avalia a eficiência da utilização de espaço no armazém?",
+    "alternativas": {
+      "A": "O faturamento mensal.",
+      "B": "A taxa de ocupação de área de armazenagem.",
+      "C": "O custo de capital.",
+      "D": "O ticket médio de venda."
+    },
+    "correta": "B",
+    "explicacao": "A taxa de ocupação mostra se o espaço é usado adequadamente, orientando reorganização para evitar áreas ociosas ou saturadas."
+  },
+  {
+    "id": "q068",
+    "categoria": "Cultura",
+    "nivel": "Intermediário",
+    "pergunta": "Por que compartilhar falhas e lições aprendidas é positivo?",
+    "alternativas": {
+      "A": "Para expor erros de colegas.",
+      "B": "Para evitar repetição dos erros e fomentar aprendizado coletivo.",
+      "C": "Para justificar maus resultados.",
+      "D": "Para punir responsáveis."
+    },
+    "correta": "B",
+    "explicacao": "Transparência nas falhas permite aprimorar processos e cultivar uma cultura de melhoria contínua."
+  },
+  {
+    "id": "q069",
+    "categoria": "Operação",
+    "nivel": "Básico",
+    "pergunta": "Ao utilizar empilhadeira, o operador deve:",
+    "alternativas": {
+      "A": "Transportar pessoas para agilizar.",
+      "B": "Seguir treinamento, respeitar velocidade e usar cinto de segurança.",
+      "C": "Ignorar manutenção preventiva.",
+      "D": "Operar apenas em áreas externas."
+    },
+    "correta": "B",
+    "explicacao": "Empilhadeiras requerem operação segura, com equipamentos em dia e respeito às normas para evitar acidentes."
+  },
+  {
+    "id": "q070",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Avançado",
+    "pergunta": "Como a utilização de embalagens retornáveis reduz perdas?",
+    "alternativas": {
+      "A": "Aumenta o custo logístico sem benefícios.",
+      "B": "Protege produtos durante transporte repetido e reduz resíduos.",
+      "C": "Gera mais descarte de plástico.",
+      "D": "Não tem impacto na prevenção de perdas."
+    },
+    "correta": "B",
+    "explicacao": "Embalagens retornáveis são resistentes e reutilizáveis, diminuindo avarias e o lixo gerado."
+  },
+  {
+    "id": "q071",
+    "categoria": "Armazenagem",
+    "nivel": "Básico",
+    "pergunta": "Qual a importância de sinalizar corretamente as prateleiras?",
+    "alternativas": {
+      "A": "Apenas para decoração.",
+      "B": "Facilita localização rápida de produtos e evita erros de separação.",
+      "C": "Serve para confundir visitantes.",
+      "D": "Não é necessário em estoques pequenos."
+    },
+    "correta": "B",
+    "explicacao": "Sinalização clara otimiza o picking, reduz tempo de busca e previne separação incorreta."
+  },
+  {
+    "id": "q072",
+    "categoria": "Segurança",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a finalidade dos bloqueios de segurança (lockout/tagout) em máquinas?",
+    "alternativas": {
+      "A": "Evitar que outras pessoas usem as máquinas para seu trabalho.",
+      "B": "Garantir que máquinas não sejam ligadas durante manutenção ou limpeza, prevenindo acidentes.",
+      "C": "Aumentar burocracia.",
+      "D": "Substituir a manutenção preventiva."
+    },
+    "correta": "B",
+    "explicacao": "Lockout/tagout é um procedimento que protege trabalhadores durante intervenções, garantindo que a máquina permaneça desenergizada."
+  },
+  {
+    "id": "q073",
+    "categoria": "Rastreabilidade",
+    "nivel": "Intermediário",
+    "pergunta": "Como a digitalização de documentos auxilia na rastreabilidade?",
+    "alternativas": {
+      "A": "Elimina completamente a necessidade de processos físicos.",
+      "B": "Permite acesso rápido e seguro às informações de cada etapa, reduzindo extravios.",
+      "C": "Aumenta o risco de perda de informação.",
+      "D": "É irrelevante para processos logísticos."
+    },
+    "correta": "B",
+    "explicacao": "Documentos digitais são facilmente arquivados, pesquisados e compartilhados, melhorando a rastreabilidade."
+  },
+  {
+    "id": "q074",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Básico",
+    "pergunta": "Qual a forma correta de descartar papelão em um centro de distribuição?",
+    "alternativas": {
+      "A": "Misturar com resíduos orgânicos.",
+      "B": "Compactar e encaminhar para reciclagem.",
+      "C": "Queimar para gerar energia.",
+      "D": "Espalhar pelo chão para absorver óleo."
+    },
+    "correta": "B",
+    "explicacao": "Compactar e reciclar papelão reduz volume e gera receita, contribuindo para sustentabilidade."
+  },
+  {
+    "id": "q075",
+    "categoria": "Comunicação",
+    "nivel": "Intermediário",
+    "pergunta": "Por que reuniões curtas (daily meetings) são úteis em operações logísticas?",
+    "alternativas": {
+      "A": "Consumir tempo operacional.",
+      "B": "Alinhar rapidamente prioridades, identificar obstáculos e melhorar o fluxo de informações.",
+      "C": "Substituir relatórios detalhados.",
+      "D": "São desnecessárias se houver e-mail."
+    },
+    "correta": "B",
+    "explicacao": "Reuniões rápidas mantêm a equipe informada e permitem ajustes imediatos nas tarefas, prevenindo erros e atrasos."
+  },
+  {
+    "id": "q076",
+    "categoria": "Auditoria",
+    "nivel": "Avançado",
+    "pergunta": "Como a análise de causa raiz (5 porquês, Ishikawa) ajuda na prevenção de perdas?",
+    "alternativas": {
+      "A": "Torna as reuniões mais longas.",
+      "B": "Identifica fatores fundamentais que originam os problemas, permitindo eliminar as causas.",
+      "C": "Serve apenas para problemas de qualidade.",
+      "D": "É um método complexo e pouco eficiente."
+    },
+    "correta": "B",
+    "explicacao": "Métodos de análise de causa raiz descobrem origens de falhas, possibilitando soluções duradouras e prevenindo recorrência."
+  },
+  {
+    "id": "q077",
+    "categoria": "Indicadores",
+    "nivel": "Avançado",
+    "pergunta": "Qual indicador mede a proporção de devoluções em relação às vendas?",
+    "alternativas": {
+      "A": "Taxa de conversão.",
+      "B": "Índice de devolução.",
+      "C": "Lucratividade líquida.",
+      "D": "Ticket médio."
+    },
+    "correta": "B",
+    "explicacao": "O índice de devolução mostra a porcentagem de vendas que retorna, apontando problemas em qualidade ou atendimento."
+  },
+  {
+    "id": "q078",
+    "categoria": "Cultura",
+    "nivel": "Avançado",
+    "pergunta": "O que caracteriza um ambiente de trabalho em que a prevenção de perdas é sustentável?",
+    "alternativas": {
+      "A": "Foco exclusivo em curto prazo.",
+      "B": "Processos integrados, participação de todos e aprendizado contínuo.",
+      "C": "Dependência de poucos especialistas.",
+      "D": "Punir erros sem orientação."
+    },
+    "correta": "B",
+    "explicacao": "Sustentabilidade na prevenção ocorre quando todos participam, processos são integrados e há melhoria contínua."
+  },
+  {
+    "id": "q079",
+    "categoria": "Operação",
+    "nivel": "Intermediário",
+    "pergunta": "Qual prática reduz danos em produtos durante transporte interno?",
+    "alternativas": {
+      "A": "Movimentar rapidamente sem fixar cargas.",
+      "B": "Utilizar cintas, cantoneiras e filmes stretch para estabilizar as cargas.",
+      "C": "Deixar a carga solta para facilitar remoção.",
+      "D": "Carregar produtos acima da capacidade do veículo."
+    },
+    "correta": "B",
+    "explicacao": "Fixar cargas com cintas e filmes reduz deslocamentos e quedas, protegendo produtos durante o transporte."
+  },
+  {
+    "id": "q080",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Básico",
+    "pergunta": "Como a metodologia 5S contribui para prevenção de perdas?",
+    "alternativas": {
+      "A": "Aumentando o tempo gasto com arrumação.",
+      "B": "Organizando, padronizando e mantendo o ambiente limpo, prevenindo avarias e desperdícios.",
+      "C": "Substituindo treinamentos técnicos.",
+      "D": "Aplicando apenas em escritórios."
+    },
+    "correta": "B",
+    "explicacao": "O 5S promove organização, limpeza e disciplina, facilitando identificação de problemas e reduzindo perdas."
+  },
+  {
+    "id": "q081",
+    "categoria": "Indicadores",
+    "nivel": "Básico",
+    "pergunta": "O que o indicador OTIF (On Time In Full) mede em logística?",
+    "alternativas": {
+      "A": "Quantidade de produtos avariados entregues.",
+      "B": "Percentual de entregas no prazo e completas, sem faltas.",
+      "C": "Número de devoluções registradas.",
+      "D": "Tempo de permanência do produto em estoque."
+    },
+    "correta": "B",
+    "explicacao": "OTIF mensura a eficiência das entregas completas e pontuais, indicando o nível de serviço ao cliente e a eficácia da cadeia de suprimentos."
+  },
+  {
+    "id": "q082",
+    "categoria": "Segurança",
+    "nivel": "Avançado",
+    "pergunta": "Qual é a medida correta ao armazenar materiais tóxicos em estoque?",
+    "alternativas": {
+      "A": "Manter os recipientes abertos para ventilar.",
+      "B": "Armazenar em local isolado, sinalizado e com ventilação adequada, seguindo FISPQ.",
+      "C": "Guardar junto a alimentos para economizar espaço.",
+      "D": "Eliminar etiquetas para manter a confidencialidade."
+    },
+    "correta": "B",
+    "explicacao": "Produtos tóxicos requerem armazenamento controlado com sinalização, ventilação e respeito às Fichas de Informação de Segurança para prevenir contaminações e acidentes."
+  },
+  {
+    "id": "q083",
+    "categoria": "Armazenagem",
+    "nivel": "Intermediário",
+    "pergunta": "O que é o cross-docking e como ele contribui para redução de perdas?",
+    "alternativas": {
+      "A": "Estoque de segurança com produtos adicionais.",
+      "B": "Processo de recebimento e envio imediato sem armazenamento prolongado, reduzindo riscos de avaria.",
+      "C": "Técnica de empilhamento de pallets.",
+      "D": "Tipo de auditoria interna mensal."
+    },
+    "correta": "B",
+    "explicacao": "No cross-docking, mercadorias são transferidas rapidamente entre veículos de recebimento e expedição, minimizando tempo em estoque e reduzindo perdas por armazenamento."
+  },
+  {
+    "id": "q084",
+    "categoria": "Rastreabilidade",
+    "nivel": "Básico",
+    "pergunta": "Por que registrar o número de série dos equipamentos é importante?",
+    "alternativas": {
+      "A": "Para dificultar a manutenção.",
+      "B": "Para rastrear origem, garantir garantia e identificar lotes em caso de recall.",
+      "C": "Para reduzir a velocidade de inventário.",
+      "D": "Não tem impacto na rastreabilidade."
+    },
+    "correta": "B",
+    "explicacao": "Números de série permitem rastrear a origem e histórico de cada equipamento, facilitando recalls, manutenções e controle de garantias."
+  },
+  {
+    "id": "q085",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Avançado",
+    "pergunta": "O que caracteriza a economia circular no contexto de prevenção de perdas?",
+    "alternativas": {
+      "A": "Descartar produtos rapidamente para liberar espaço.",
+      "B": "Reciclar, reutilizar e reintroduzir materiais na cadeia produtiva, minimizando resíduos.",
+      "C": "Aumentar produção sem considerar reaproveitamento.",
+      "D": "Comprar novos recursos ao invés de reaproveitar."
+    },
+    "correta": "B",
+    "explicacao": "A economia circular busca reutilizar e reciclar materiais, transformando resíduos em recursos, reduzindo perdas e impactos ambientais."
+  },
+  {
+    "id": "q086",
+    "categoria": "Comunicação",
+    "nivel": "Intermediário",
+    "pergunta": "Como a comunicação assertiva entre áreas reduz perdas operacionais?",
+    "alternativas": {
+      "A": "Criando relatórios excessivos para confundir a equipe.",
+      "B": "Transmitindo informações claras, objetivas e no momento certo para evitar retrabalhos.",
+      "C": "Utilizando somente e-mails sem follow-up.",
+      "D": "Omitindo dados para proteger a equipe."
+    },
+    "correta": "B",
+    "explicacao": "A comunicação assertiva evita mal-entendidos, garante alinhamento entre áreas e reduz retrabalho e desperdício de recursos."
+  },
+  {
+    "id": "q087",
+    "categoria": "Auditoria",
+    "nivel": "Básico",
+    "pergunta": "Por que registrar logs de acesso em sistemas digitais de estoque é importante?",
+    "alternativas": {
+      "A": "Para aumentar o consumo de armazenamento.",
+      "B": "Para monitorar atividades, identificar alterações indevidas e dar suporte a investigações.",
+      "C": "Porque não se confia na equipe.",
+      "D": "Não tem relevância para auditorias."
+    },
+    "correta": "B",
+    "explicacao": "Logs de acesso permitem auditar ações, detectar alterações não autorizadas e garantir a integridade dos dados."
+  },
+  {
+    "id": "q088",
+    "categoria": "Cultura",
+    "nivel": "Avançado",
+    "pergunta": "Como programas de reconhecimento e recompensa impactam a prevenção de perdas?",
+    "alternativas": {
+      "A": "Criam competição negativa entre colaboradores.",
+      "B": "Estimula engajamento, melhora moral e reforça comportamentos preventivos.",
+      "C": "Substituem treinamentos técnicos.",
+      "D": "São ineficazes e geram custos adicionais."
+    },
+    "correta": "B",
+    "explicacao": "Reconhecer e recompensar comportamentos positivos reforça a cultura de prevenção, motivando as pessoas a manter boas práticas."
+  },
+  {
+    "id": "q089",
+    "categoria": "Operação",
+    "nivel": "Intermediário",
+    "pergunta": "Como o abastecimento just-in-time contribui para redução de perdas?",
+    "alternativas": {
+      "A": "Mantendo estoque elevado para evitar faltas.",
+      "B": "Recebendo materiais próximos ao momento do uso, diminuindo estoque parado e vencimentos.",
+      "C": "Aumentando o tempo de armazenamento.",
+      "D": "Ignorando planejamento de demanda."
+    },
+    "correta": "B",
+    "explicacao": "O just-in-time reduz inventário, diminuindo custos e perdas por obsolescência ou vencimento, ao sincronizar fornecimento com produção."
+  },
+  {
+    "id": "q090",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Avançado",
+    "pergunta": "O que são perdas por obsolescência e como preveni-las?",
+    "alternativas": {
+      "A": "Perdas por extravio físico dos produtos.",
+      "B": "Produtos que se tornam inutilizáveis ou desatualizados antes do uso; prevenção via planejamento de compras e previsão de demanda.",
+      "C": "Perdas causadas por acidentes de transporte.",
+      "D": "Descarte de produtos vencidos por prazo de validade."
+    },
+    "correta": "B",
+    "explicacao": "Obsolescência ocorre quando itens se tornam obsoletos ou superados; planejamento de compras e gestão de inventário diminuem esse risco."
+  },
+  {
+    "id": "q091",
+    "categoria": "Armazenagem",
+    "nivel": "Básico",
+    "pergunta": "Por que monitorar a temperatura de ambientes refrigerados é crucial?",
+    "alternativas": {
+      "A": "Para ajustar a iluminação.",
+      "B": "Para garantir que produtos sensíveis permaneçam na faixa adequada, evitando perdas por deterioração.",
+      "C": "Para economizar energia desligando equipamentos.",
+      "D": "Não é necessário se o ambiente tiver porta."
+    },
+    "correta": "B",
+    "explicacao": "Produtos perecíveis exigem condições específicas de temperatura; monitorar evita perdas por variações e garante qualidade."
+  },
+  {
+    "id": "q092",
+    "categoria": "Segurança",
+    "nivel": "Intermediário",
+    "pergunta": "Qual é a importância de realizar inspeções periódicas em equipamentos de movimentação?",
+    "alternativas": {
+      "A": "Apenas para cumprir normas legais.",
+      "B": "Identificar desgaste, prevenir falhas e garantir segurança de operadores e produtos.",
+      "C": "Reduzir a vida útil dos equipamentos.",
+      "D": "Não é necessário se os equipamentos forem novos."
+    },
+    "correta": "B",
+    "explicacao": "Inspeções regulares detectam problemas antes de falhas, evitando acidentes e avarias em produtos."
+  },
+  {
+    "id": "q093",
+    "categoria": "Rastreabilidade",
+    "nivel": "Avançado",
+    "pergunta": "Como a tecnologia de blockchain pode auxiliar na rastreabilidade de produtos?",
+    "alternativas": {
+      "A": "Eliminando a necessidade de registros.",
+      "B": "Criando um registro imutável e transparente de todas as transações na cadeia de suprimentos.",
+      "C": "Substituindo o uso de códigos de barras.",
+      "D": "Não tem relação com rastreabilidade."
+    },
+    "correta": "B",
+    "explicacao": "Blockchain registra dados em blocos encadeados e imutáveis, aumentando confiança e visibilidade em toda a cadeia de suprimentos."
+  },
+  {
+    "id": "q094",
+    "categoria": "Descarte/Reaproveitamento",
+    "nivel": "Básico",
+    "pergunta": "Qual prática ajuda a reduzir o uso de plásticos descartáveis em processos logísticos?",
+    "alternativas": {
+      "A": "Utilizar filmes plásticos em todas as embalagens.",
+      "B": "Adotar embalagens retornáveis e recicláveis sempre que possível.",
+      "C": "Descartar plástico no lixo comum.",
+      "D": "Ignorar padrões de sustentabilidade."
+    },
+    "correta": "B",
+    "explicacao": "Embalagens retornáveis ou recicláveis reduzem o consumo de plástico de uso único, diminuindo resíduos e custos de descarte."
+  },
+  {
+    "id": "q095",
+    "categoria": "Comunicação",
+    "nivel": "Avançado",
+    "pergunta": "Como ferramentas digitais colaborativas impactam a prevenção de perdas?",
+    "alternativas": {
+      "A": "Aumentando a complexidade e burocracia.",
+      "B": "Facilitando a troca rápida de informações, registro de ocorrências e acompanhamento em tempo real.",
+      "C": "Substituindo totalmente a necessidade de reuniões.",
+      "D": "Servem apenas para entretenimento."
+    },
+    "correta": "B",
+    "explicacao": "Plataformas digitais colaborativas agilizam comunicação, permitindo registro e acompanhamento de ações preventivas, reduzindo falhas."
+  },
+  {
+    "id": "q096",
+    "categoria": "Auditoria",
+    "nivel": "Intermediário",
+    "pergunta": "Por que é importante segregar funções nos processos financeiros e logísticos?",
+    "alternativas": {
+      "A": "Para aumentar o número de funcionários.",
+      "B": "Para reduzir riscos de fraudes e erros, dividindo responsabilidades e evitando conflitos de interesse.",
+      "C": "Para dificultar o controle e gestão.",
+      "D": "Não há necessidade em empresas pequenas."
+    },
+    "correta": "B",
+    "explicacao": "Segregação de funções distribui tarefas-chave entre diferentes pessoas, prevenindo fraudes e garantindo controles eficazes."
+  },
+  {
+    "id": "q097",
+    "categoria": "Indicadores",
+    "nivel": "Avançado",
+    "pergunta": "O que é o efeito chicote (bullwhip) e como pode causar perdas?",
+    "alternativas": {
+      "A": "Redução de estoque devido à demanda estável.",
+      "B": "Amplificação de variações de demanda ao longo da cadeia, levando a estoques excessivos ou faltas.",
+      "C": "Aumento constante de vendas sem impactos.",
+      "D": "Processo de reciclagem de materiais."
+    },
+    "correta": "B",
+    "explicacao": "Pequenas variações na demanda final podem amplificar-se na cadeia de suprimentos, gerando excesso ou falta de produtos e perdas financeiras."
+  },
+  {
+    "id": "q098",
+    "categoria": "Cultura",
+    "nivel": "Básico",
+    "pergunta": "Por que é importante treinar todos os níveis hierárquicos sobre prevenção de perdas?",
+    "alternativas": {
+      "A": "Para sobrecarregar colaboradores.",
+      "B": "Porque a prevenção de perdas é responsabilidade coletiva e exige alinhamento de todos.",
+      "C": "Treinar apenas estagiários basta.",
+      "D": "Porque líderes não precisam conhecer processos básicos."
+    },
+    "correta": "B",
+    "explicacao": "Quando todos entendem sua função na prevenção, há maior engajamento e consistência nas práticas, reduzindo perdas."
+  },
+  {
+    "id": "q099",
+    "categoria": "Operação",
+    "nivel": "Avançado",
+    "pergunta": "Como sistemas de inventário automatizado (por exemplo, drones ou sensores) contribuem para a redução de perdas?",
+    "alternativas": {
+      "A": "Substituindo completamente a equipe humana.",
+      "B": "Aumentando a frequência e precisão das contagens, identificando discrepâncias rapidamente.",
+      "C": "Gerando dados irrelevantes para gestão.",
+      "D": "Criando burocracia sem retorno."
+    },
+    "correta": "B",
+    "explicacao": "Automatização permite inventários mais frequentes e precisos, facilitando a detecção de desvios e reduzindo perdas por erro ou furto."
+  },
+  {
+    "id": "q100",
+    "categoria": "Avarias/Desperdícios",
+    "nivel": "Intermediário",
+    "pergunta": "O que significa o princípio FEFO (First Expired, First Out) e como ajuda na prevenção de perdas?",
+    "alternativas": {
+      "A": "Utilizar primeiro os produtos que chegaram mais recentemente.",
+      "B": "Priorizar o uso de itens com a data de validade mais próxima, evitando vencimentos.",
+      "C": "Armazenar produtos em ordem alfabética.",
+      "D": "Descartar produtos antigos independentemente da validade."
+    },
+    "correta": "B",
+    "explicacao": "FEFO prioriza a utilização de itens com vencimento mais próximo, reduzindo perdas por validade expirada e preservando produtos mais recentes."
+  }
+]
