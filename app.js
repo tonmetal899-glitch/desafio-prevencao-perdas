@@ -37,7 +37,11 @@ const firebaseConfig = {
   authDomain: 'prev-perdas.firebaseapp.com',
   databaseURL: 'https://prev-perdas-default-rtdb.firebaseio.com',
   projectId: 'prev-perdas',
-  storageBucket: 'prev-perdas.firebasestorage.app',
+  // URL do bucket de armazenamento (opcional). No Firebase, geralmente tem
+  // o formato <projectId>.appspot.com. Ajuste conforme seu projeto se
+  // utilizar Storage. Ainda que não usemos storage neste app, manter o valor
+  // correto evita erros de inicialização.
+  storageBucket: 'prev-perdas.appspot.com',
   messagingSenderId: '929112958553',
   appId: '1:929112958553:web:c9fe9c4051755e533af348',
   measurementId: 'G-51MW56MWRQ'
