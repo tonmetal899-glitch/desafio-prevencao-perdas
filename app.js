@@ -31,13 +31,16 @@ import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gsta
 // chaves são públicas e podem ser embutidas no cliente. Veja o README
 // para instruções de obtenção.
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  databaseURL: 'YOUR_DATABASE_URL',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_SENDER_ID',
-  appId: 'YOUR_APP_ID'
+  // Credenciais reais do projeto Firebase fornecidas pelo usuário. Estas
+  // chaves são públicas e podem ser embutidas no cliente.
+  apiKey: 'AIzaSyDo4iQm4kyqO7L_85H-3Ma2bIbLinzFBuM',
+  authDomain: 'prev-perdas.firebaseapp.com',
+  databaseURL: 'https://prev-perdas-default-rtdb.firebaseio.com',
+  projectId: 'prev-perdas',
+  storageBucket: 'prev-perdas.firebasestorage.app',
+  messagingSenderId: '929112958553',
+  appId: '1:929112958553:web:c9fe9c4051755e533af348',
+  measurementId: 'G-51MW56MWRQ'
 };
 
 // Inicializa Firebase App, Auth e Database
