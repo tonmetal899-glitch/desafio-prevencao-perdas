@@ -1,0 +1,104 @@
+<!--
+  index.html
+
+  Este arquivo contém a estrutura principal do jogo "Desafio da Prevenção de Perdas".
+  É um aplicativo SPA (Single Page Application) básico, dividido em seções para lobby,
+  jogo e resultados. O design foi pensado para ser responsivo e acessível, com foco
+  na experiência de múltiplos jogadores. Todos os scripts são carregados como ES
+  Modules para manter a separação de responsabilidades e facilitar futuras
+  manutenções. As bibliotecas externas (Firebase e QRCode) são carregadas a partir
+  de arquivos locais para permitir deploy em hospedagens estáticas sem dependências
+  de CDNs.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desafio da Prevenção de Perdas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Prefetch sons para melhorar latência na reprodução após interação -->
+  <link rel="preload" as="audio" href="assets/sounds/correct.mp3" />
+  <link rel="preload" as="audio" href="assets/sounds/wrong.mp3" />
+</head>
+<body>
+  <header id="app-header">
+    <img src="assets/img/logo.svg" alt="Desafio da Prevenção de Perdas" id="logo" />
+    <h1>Desafio da Prevenção de Perdas</h1>
+  </header>
+  <main id="app">
+    <!-- Lobby: criação e entrada em salas -->
+    <section id="lobby" aria-labelledby="lobby-title">
+      <h2 id="lobby-title" class="sr-only">Lobby</h2>
+      <div class="card" id="create-room-card">
+        <h3>Criar Sala</h3>
+        <button id="create-room-btn" class="primary">Criar Nova Sala</button>
+        <div id="room-details" class="hidden" aria-live="polite">
+          <p>Compartilhe o código ou o QR Code abaixo:</p>
+          <p><strong id="room-code-display" aria-label="Código da sala"></strong></p>
+          <div id="qrcode"></div>
+          <label for="question-count">Nº de perguntas:</label>
+          <select id="question-count" aria-label="Número de perguntas">
+            <option value="10">10</option>
+            <option value="15" selected>15</option>
+            <option value="20">20</option>
+          </select>
+          <button id="start-game-btn" class="primary">Iniciar Partida</button>
+          <div id="players-list" class="players-list"></div>
+        </div>
+      </div>
+      <div class="card" id="join-room-card">
+        <h3>Entrar na Sala</h3>
+        <form id="join-form" autocomplete="off">
+          <div class="form-group">
+            <label for="join-room-code">Código da Sala</label>
+            <input type="text" id="join-room-code" maxlength="6" pattern="\d{6}" required />
+          </div>
+          <div class="form-group">
+            <label for="player-name">Seu Nome</label>
+            <input type="text" id="player-name" maxlength="20" required />
+          </div>
+          <div class="form-group">
+            <label for="player-unit">Unidade</label>
+            <input type="text" id="player-unit" maxlength="20" required />
+          </div>
+          <button type="submit" class="primary">Entrar</button>
+        </form>
+      </div>
+    </section>
+    <!-- Área de jogo -->
+    <section id="game" class="hidden" aria-labelledby="game-title">
+      <h2 id="game-title" class="sr-only">Jogo</h2>
+      <div id="status-bar">
+        <div id="question-progress" aria-label="Progresso de Perguntas"></div>
+        <div id="timer" role="timer" aria-live="assertive"></div>
+      </div>
+      <div id="question-card" class="card" aria-live="polite"></div>
+      <div id="options" class="options"></div>
+      <div id="explanation" class="hidden" aria-live="polite"></div>
+      <div id="scoreboard" class="scoreboard"></div>
+    </section>
+    <!-- Resultados -->
+    <section id="results" class="hidden" aria-labelledby="results-title">
+      <h2 id="results-title" class="sr-only">Resultados</h2>
+      <div class="card" id="results-card">
+        <h3>Classificação Final</h3>
+        <div id="leaderboard"></div>
+        <button id="export-csv-btn" class="secondary">Exportar Resultados (CSV)</button>
+        <div id="winner-animation" aria-hidden="true"></div>
+        <div class="actions">
+          <button id="rematch-btn" class="primary">Revanche</button>
+          <button id="new-room-btn" class="secondary">Nova Sala</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="app-footer">
+    <p>© 2025 Treinamento de Prevenção de Perdas. Apenas para fins educacionais.</p>
+    <p><a href="#" id="privacy-link">Política de Privacidade</a></p>
+  </footer>
+  <!-- Bibliotecas externas: QRCode e Firebase -->
+  <script src="assets/lib/qrcode.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
