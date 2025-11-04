@@ -465,22 +465,29 @@ class Game {
    * @param {boolean} correct Indica se a resposta foi correta.
    */
   playSound(correct) {
-    // Frequências para acorde de acerto (C5 e E5) e erro (G3 e B3).
-    const freqs = correct ? [523.25, 659.25] : [196.00, 246.94];
+    /*
+     * Reproduz um acorde harmônico para feedback das respostas.
+     * Para respostas corretas usamos um acorde maior de Mi (E4–G#4–B4).
+     * Para respostas erradas usamos um acorde menor de Dó (C4–Eb4–G4).
+     * Esses acordes são mais agradáveis que bipes simples e evitam
+     * ruídos irritantes. Cada nota toca por ~0,4s com volume moderado.
+     */
+    const freqs = correct
+      ? [329.63, 415.30, 493.88] // E4, G#4, B4
+      : [261.63, 311.13, 392.00]; // C4, Eb4, G4
     if (!this.audioContext) {
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
     const ctx = this.audioContext;
     const gain = ctx.createGain();
-    gain.gain.value = 0.15;
+    gain.gain.value = 0.18;
     gain.connect(ctx.destination);
-    // Cria dois osciladores para compor um acorde.
     freqs.forEach(f => {
       const osc = ctx.createOscillator();
       osc.frequency.value = f;
       osc.connect(gain);
       osc.start();
-      osc.stop(ctx.currentTime + 0.35);
+      osc.stop(ctx.currentTime + 0.4);
     });
   }
 
@@ -493,23 +500,28 @@ class Game {
    */
   playTimerWarning(seconds) {
     /*
-     * Este método produz uma pequena melodia para os últimos segundos do
-     * cronômetro, em vez de um beep simples. Quando restam mais de 2
-     * segundos, tocamos um acorde mediano (Dó maior) com três notas
-     * (C5=523 Hz, E5=659 Hz, G5=784 Hz). Nos últimos dois segundos,
-     * aumentamos a tensão com notas mais agudas (A5=880 Hz, C6≈1046 Hz,
-     * E6≈1319 Hz). Cada nota começa com um intervalo de 100 ms para
-     * criar um ritmo e o volume é suavizado para não incomodar.
+     * Esta função toca uma sequência temática durante os últimos segundos
+     * do cronômetro. Cada segundo restante possui uma melodia própria,
+     * criando um clima de contagem regressiva. Nas contagens mais altas
+     * (3–5 segundos) tocamos acordes menores ascendentes (F, G, A), e
+     * nos dois últimos segundos usamos notas bem agudas para aumentar
+     * a tensão. Cada nota é iniciada com pequeno atraso para produzir
+     * um efeito arpejado.
      */
-    const freqs = seconds <= 2
-      ? [880.00, 1046.50, 1318.51]
-      : [523.25, 659.25, 783.99];
+    const melodies = {
+      5: [349.23, 392.00, 440.00],        // F4, G4, A4
+      4: [392.00, 493.88, 587.33],        // G4, B4, D5
+      3: [440.00, 554.37, 659.25],        // A4, C#5, E5
+      2: [659.25, 783.99],                // E5, G5
+      1: [880.00, 987.77, 1046.50]        // A5, B5, C6
+    };
+    const freqs = melodies[seconds] || [523.25, 659.25, 783.99];
     if (!this.audioContext) {
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
     const ctx = this.audioContext;
     const gain = ctx.createGain();
-    gain.gain.value = 0.15;
+    gain.gain.value = 0.18;
     gain.connect(ctx.destination);
     freqs.forEach((f, idx) => {
       const osc = ctx.createOscillator();
@@ -517,7 +529,7 @@ class Game {
       osc.connect(gain);
       const startTime = ctx.currentTime + idx * 0.1;
       osc.start(startTime);
-      osc.stop(startTime + 0.25);
+      osc.stop(startTime + 0.35);
     });
   }
 

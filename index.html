@@ -104,8 +104,10 @@
     <p>© 2025 Treinamento de Prevenção de Perdas. Apenas para fins educacionais.</p>
     <p><a href="#" id="privacy-link">Política de Privacidade</a></p>
   </footer>
-  <!-- Bibliotecas externas: QRCode e Firebase -->
-  <script src="assets/lib/qrcode.min.js"></script>
-  <script type="module" src="app.js"></script>
+      <!-- Bibliotecas externas: QRCode e Firebase -->
+      <!-- Carrega a biblioteca de QR Code diretamente da pasta assets para garantir
+           funcionamento sem depender de um carregador intermediário. -->
+      <script src="assets/qrcode.min.js"></script>
+      <script type="module" src="app.js"></script>
 </body>
 </html>
