@@ -47,7 +47,14 @@
           <div id="players-list" class="players-list"></div>
         </div>
       </div>
-      <div class="card" id="join-room-card">
+      <!--
+        O formulário de entrada em sala fica oculto por padrão. Ele será exibido
+        somente para participantes que acessarem o jogo com o parâmetro
+        ?room=123456 na URL ou quando não forem o host. O host não vê este
+        formulário porque sua entrada é registrada automaticamente ao criar a
+        sala. Veja app.js para a lógica de exibição.
+      -->
+      <div class="card hidden" id="join-room-card">
         <h3>Entrar na Sala</h3>
         <form id="join-form" autocomplete="off">
           <div class="form-group">

@@ -266,6 +266,13 @@ button:active:not(:disabled) {
   margin: 1rem 0;
 }
 
+/* O título do vencedor deve ser destacado. Aumenta-se o tamanho da fonte e
+ * adiciona margem inferior para separar a animação do ranking. */
+#winner-animation h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Confetes: criados via JS, aqui só ajustamos a posição inicial */
 .confetti {
   position: absolute;

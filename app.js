@@ -160,9 +160,16 @@ class Game {
     this.winnerAnimation = document.getElementById('winner-animation');
 
     // Sons: tentar carregar MP3; caso falhe, usar WebAudio para gerar tom.
+    // Embora existam arquivos de som, usaremos tons gerados por WebAudio para
+    // tornar os feedbacks mais agradáveis e universais. Manter os arquivos
+    // ainda permite pré-carregamento e compatibilidade futura.
     this.correctSound = new Audio('assets/sounds/correct.mp3');
     this.wrongSound = new Audio('assets/sounds/wrong.mp3');
     this.audioContext = null;
+
+    // Armazena o último segundo sinalizado para a contagem regressiva. Usado
+    // para tocar avisos apenas quando muda o segundo restante.
+    this.prevSecond = null;
   }
 
   /**
@@ -227,10 +234,18 @@ class Game {
     this.timeRemaining = this.perQuestion;
     this.startTime = performance.now();
     this.timerEl.textContent = `15.0s`;
+    this.prevSecond = null;
     this.timerId = setInterval(() => {
       const elapsed = performance.now() - this.startTime;
       const remaining = Math.max(0, this.perQuestion - elapsed);
+      // Atualiza display
       this.timerEl.textContent = `${(remaining / 1000).toFixed(1)}s`;
+      // Toca aviso nos últimos 5 segundos a cada mudança de segundo
+      const secondsLeft = Math.ceil(remaining / 1000);
+      if (secondsLeft <= 5 && secondsLeft !== this.prevSecond) {
+        this.playTimerWarning(secondsLeft);
+        this.prevSecond = secondsLeft;
+      }
       if (remaining <= 0) {
         clearInterval(this.timerId);
         this.lockAnswers();
@@ -402,13 +417,19 @@ class Game {
         tbody.appendChild(tr);
       });
       table.appendChild(tbody);
+      // Oculta o ranking inicialmente. Ele será exibido após a animação do vencedor.
       this.leaderboardEl.innerHTML = '';
-      this.leaderboardEl.appendChild(table);
-      // Exibe animação de vencedor
+      this.leaderboardEl.classList.add('hidden');
+      // Exibe animação de vencedor e depois mostra a tabela
       if (list.length > 0) {
         const winner = list[0];
         this.showWinnerAnimation(winner.name);
       }
+      // Após 3 segundos, exibe o ranking completo
+      setTimeout(() => {
+        this.leaderboardEl.appendChild(table);
+        this.leaderboardEl.classList.remove('hidden');
+      }, 3000);
     });
   }
 
@@ -438,31 +459,60 @@ class Game {
   }
 
   /**
-   * Reproduz som de acerto ou erro. Caso o carregamento de MP3 falhe,
-   * utiliza WebAudio API para gerar um bip.
-   * @param {boolean} correct
+   * Reproduz um som de feedback ao responder uma questão. Para tornar o
+   * feedback mais agradável, utiliza dois osciladores para criar um
+   * acorde simples em vez de um beep único. O som é breve e suave.
+   * @param {boolean} correct Indica se a resposta foi correta.
    */
   playSound(correct) {
-    const audio = correct ? this.correctSound : this.wrongSound;
-    audio.volume = 0.5;
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Fallback: gerar tom via WebAudio
-        if (!this.audioContext) {
-          this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        const ctx = this.audioContext;
-        const oscillator = ctx.createOscillator();
-        const gain = ctx.createGain();
-        oscillator.frequency.value = correct ? 880 : 220;
-        gain.gain.value = 0.2;
-        oscillator.connect(gain);
-        gain.connect(ctx.destination);
-        oscillator.start();
-        oscillator.stop(ctx.currentTime + 0.2);
-      });
+    // Frequências para acorde de acerto (C5 e E5) e erro (G3 e B3).
+    const freqs = correct ? [523.25, 659.25] : [196.00, 246.94];
+    if (!this.audioContext) {
+      this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
+    const ctx = this.audioContext;
+    const gain = ctx.createGain();
+    gain.gain.value = 0.15;
+    gain.connect(ctx.destination);
+    // Cria dois osciladores para compor um acorde.
+    freqs.forEach(f => {
+      const osc = ctx.createOscillator();
+      osc.frequency.value = f;
+      osc.connect(gain);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.35);
+    });
+  }
+
+  /**
+   * Toca um aviso sonoro quando o tempo da pergunta está no final. O
+   * parâmetro seconds indica quantos segundos restam e pode ser usado
+   * para variar o tom. Quando restam 2 segundos ou menos, o tom fica
+   * mais agudo para aumentar a urgência.
+   * @param {number} seconds Restantes (inteiro)
+   */
+  playTimerWarning(seconds) {
+    // O aviso no cronômetro utiliza frequências diferentes para criar
+    // sensação de urgência: tons mais graves nos primeiros segundos e
+    // mais agudos nos últimos 2 segundos. Tocamos duas notas curtas
+    // formando uma pequena melodia a cada segundo restante.
+    const freqs = seconds <= 2 ? [880, 988] : [523.25, 659.25];
+    if (!this.audioContext) {
+      this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    const ctx = this.audioContext;
+    const gain = ctx.createGain();
+    gain.gain.value = 0.12;
+    gain.connect(ctx.destination);
+    freqs.forEach((f, idx) => {
+      const osc = ctx.createOscillator();
+      osc.frequency.value = f;
+      osc.connect(gain);
+      // Inicia cada oscilador com pequeno atraso para criar ritmo.
+      const startTime = ctx.currentTime + idx * 0.05;
+      osc.start(startTime);
+      osc.stop(startTime + 0.2);
+    });
   }
 
   /**
@@ -551,11 +601,48 @@ const rematchBtn = document.getElementById('rematch-btn');
 const newRoomBtn = document.getElementById('new-room-btn');
 const exportCsvBtn = document.getElementById('export-csv-btn');
 
+// -------------------------------------------------------------------
+//  Fluxo de exibição no lobby
+//
+// As cartas de criação de sala e de ingresso na sala são exibidas de
+// acordo com o contexto. Por padrão, apenas a criação de sala aparece.
+// Quando o usuário acessa a página com ?room=<id> na URL, a carta de
+// ingresso é exibida e a de criação é ocultada. O host também não vê
+// o formulário de ingresso após criar a sala.
+const createRoomCard = document.getElementById('create-room-card');
+const joinRoomCard = document.getElementById('join-room-card');
+const joinRoomCodeInput = document.getElementById('join-room-code');
+
+// O botão de iniciar partida deve ficar oculto até que o host crie
+// a sala. Para jogadores, esse botão permanecerá oculto.
+startGameBtn.classList.add('hidden');
+
 // Estado global
 let currentRoom = null;
 let currentGame = null;
 let currentPlayerId = null;
 let isHost = false;
+
+// -------------------------------------------------------------------
+//  Manipula a exibição de cartões com base no parâmetro da URL
+//
+// Se a URL contiver ?room=<código>, oculta a carta de criação de sala e
+// exibe a carta de ingresso, preenchendo o campo de código
+// automaticamente. Caso contrário, mantém a criação de sala visível
+// (join card permanecerá oculto por padrão). Essa função é executada
+// imediatamente para ajustar o layout antes das ações do usuário.
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  const roomParam = params.get('room');
+  if (roomParam) {
+    // Visitante com link: mostrar formulário de ingresso
+    createRoomCard.classList.add('hidden');
+    joinRoomCard.classList.remove('hidden');
+    if (joinRoomCodeInput) {
+      joinRoomCodeInput.value = roomParam;
+    }
+  }
+})();
 
 // Autentica anonimamente e inicializa handlers
 signInAnonymously(auth).catch(err => console.error(err));
@@ -609,6 +696,10 @@ createRoomBtn.addEventListener('click', async () => {
       playersListEl.appendChild(div);
     });
   });
+
+  // Oculta o formulário de ingresso (host não deve ver) e exibe botão de iniciar
+  joinRoomCard.classList.add('hidden');
+  startGameBtn.classList.remove('hidden');
 });
 
 /**
@@ -681,6 +772,17 @@ async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit 
       currentGame.renderResults();
     }
   });
+
+  // Ajusta exibição no lobby com base no papel do usuário
+  if (isHost) {
+    // Host não precisa ver o formulário de ingresso e pode iniciar a partida
+    joinRoomCard.classList.add('hidden');
+    startGameBtn.classList.remove('hidden');
+  } else {
+    // Jogadores não são host: ocultar botão de iniciar e formulário após enviar
+    joinRoomCard.classList.add('hidden');
+    startGameBtn.classList.add('hidden');
+  }
 }
 
 // Botões de resultados
