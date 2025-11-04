@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Um ícone de troféu simples para celebrar o vencedor. A taça é dourada
+  (#FFD700) com contorno mais escuro (#B8860B) e alças curvas. O
+  arquivo pode ser escalado livremente via CSS sem perda de qualidade.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Base do troféu -->
+  <rect x="24" y="54" width="16" height="6" fill="#FFD700" />
+  <rect x="20" y="48" width="24" height="6" rx="2" fill="#FFD700" />
+  <!-- Taça principal -->
+  <path d="M16 10 H48 L44 32 C43 42 34 48 32 48 C30 48 21 42 20 32 Z" fill="#FFD700" stroke="#B8860B" stroke-width="2" />
+  <!-- Alça esquerda -->
+  <path d="M10 14 C6 14 6 26 10 30 C14 34 20 34 20 34" fill="none" stroke="#B8860B" stroke-width="3" stroke-linecap="round"/>
+  <!-- Alça direita -->
+  <path d="M54 14 C58 14 58 26 54 30 C50 34 44 34 44 34" fill="none" stroke="#B8860B" stroke-width="3" stroke-linecap="round"/>
+  <!-- Estrela decorativa -->
+  <polygon points="32,20 34.5,26 41,26 35.5,30 37.5,36 32,32 26.5,36 28.5,30 23,26 29.5,26" fill="#FFF59D" />
+</svg>
