@@ -757,9 +757,11 @@ createRoomBtn.addEventListener('click', async () => {
      * reintroduza a lógica condicional anterior.
      */
     qrContainer.innerHTML =
+      // Define atributos de largura/altura explicitamente para garantir
+      // que o QR Code seja exibido corretamente em todos os navegadores.
       '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' +
       encodeURIComponent(joinUrl) +
-      '&size=128x128" alt="QR Code" />';
+      '&size=128x128" alt="QR Code" width="128" height="128" />';
   }
   // Adiciona host como player
   await currentRoom.addPlayer(currentPlayerId, 'Host', '');
