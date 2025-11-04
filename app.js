@@ -691,8 +691,15 @@ createRoomBtn.addEventListener('click', async () => {
   });
   roomCodeDisplay.textContent = currentRoom.roomId;
   roomDetails.classList.remove('hidden');
-  // Gera QR Code do link para ingressar
+  // Gera QR Code do link para ingressar e atualiza o link textual
   const joinUrl = `${window.location.origin}${window.location.pathname}?room=${currentRoom.roomId}`;
+  // Preenche o elemento de link para permitir que o host compartilhe o endereço
+  const joinLinkEl = document.getElementById('join-link');
+  if (joinLinkEl) {
+    joinLinkEl.href = joinUrl;
+    joinLinkEl.textContent = joinUrl;
+  }
+  // Renderiza o QR Code correspondente ao link
   new QRCode(document.getElementById('qrcode'), {
     text: joinUrl,
     width: 128,
