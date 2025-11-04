@@ -453,15 +453,16 @@ class Game {
     title.style.color = 'var(--color-primary)';
     this.winnerAnimation.appendChild(title);
 
-    // Gera confetes
-    const colors = ['#FFC107', '#1976D2', '#4CAF50', '#E53935'];
-    for (let i = 0; i < 80; i++) {
+    // Gera confetes e fogos com quantidades maiores para uma celebração
+    const colors = ['#FFC107', '#1976D2', '#4CAF50', '#E53935', '#FFD740', '#00BCD4'];
+    const confettiCount = 150;
+    for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement('div');
       confetti.classList.add('confetti');
       confetti.style.left = Math.random() * 100 + '%';
       confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      confetti.style.animationDuration = 2 + Math.random() * 2 + 's';
-      confetti.style.opacity = Math.random().toString();
+      confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+      confetti.style.opacity = (0.7 + Math.random() * 0.3).toString();
       this.winnerAnimation.appendChild(confetti);
     }
   }
@@ -473,18 +474,20 @@ class Game {
    * @param {boolean} correct Indica se a resposta foi correta.
    */
   playSound(correct) {
-    /**
-     * Ao invés de acordes simples, tocamos uma pequena sequência
-     * melódica para deixar o feedback mais expressivo. Para respostas
-     * corretas usamos uma escala ascendente (C5–E5–G5–C6) criando uma
-     * sensação de vitória. Para respostas erradas usamos uma sequência
-     * descendente em tons graves (A3–F3–D3) evocando erro. Cada nota
-     * dura 0,2s e começa com 0,15s de distância, resultando em um
-     * jingle curto e memorável.
+    /*
+     * Em vez de apenas um acorde, tocamos uma fanfarra curta para respostas
+     * corretas e uma sequência descendente mais dramática para respostas
+     * erradas. A sequência de acerto é uma série de notas ascendentes
+     * (C5, E5, G5, B5, C6, E6) que criam uma sensação de comemoração. A
+     * sequência de erro utiliza notas menores e descendentes (G4, Eb4,
+     * C4, G3, E3) para transmitir decepção. Cada nota dura 0,18 s e
+     * inicia com um atraso de 0,12 s em relação à anterior. O volume
+     * é ajustado para ser confortável ao ouvido. Caso o contexto de
+     * áudio ainda não exista, ele é criado.
      */
     const sequences = correct
-      ? [523.25, 659.25, 783.99, 1046.50] // C5, E5, G5, C6
-      : [220.00, 174.61, 146.83];        // A3, F3, D3
+      ? [523.25, 659.25, 783.99, 987.77, 1046.50, 1318.51] // C5, E5, G5, B5, C6, E6
+      : [392.00, 311.13, 261.63, 196.00, 164.81];          // G4, Eb4, C4, G3, E3
     if (!this.audioContext) {
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -493,12 +496,12 @@ class Game {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.frequency.value = freq;
-      gain.gain.value = correct ? 0.25 : 0.2;
+      gain.gain.value = correct ? 0.22 : 0.25;
       osc.connect(gain);
       gain.connect(ctx.destination);
-      const startTime = ctx.currentTime + index * 0.15;
+      const startTime = ctx.currentTime + index * 0.12;
       osc.start(startTime);
-      osc.stop(startTime + 0.2);
+      osc.stop(startTime + 0.18);
     });
   }
 
@@ -777,6 +780,11 @@ createRoomBtn.addEventListener('click', async () => {
   // Oculta o formulário de ingresso (host não deve ver) e exibe botão de iniciar
   joinRoomCard.classList.add('hidden');
   startGameBtn.classList.remove('hidden');
+
+  // Oculta também o botão de criar sala após a criação para evitar que o
+  // host crie múltiplas salas acidentalmente. O botão será exibido
+  // novamente caso a página seja recarregada ou em uma nova visita.
+  createRoomBtn.classList.add('hidden');
 });
 
 /**
@@ -856,10 +864,19 @@ async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit 
     joinRoomCard.classList.add('hidden');
     startGameBtn.classList.remove('hidden');
   } else {
-    // Jogadores: ocultar formulário de entrada e o botão iniciar
+    // Jogadores: mostram o cartão da sala (com código, link e lista) e
+    // aguardam o host iniciar. O botão de criação de sala e o botão de
+    // iniciar partida são ocultados para evitar ações indevidas.
+    // Primeiro, exibimos o cartão de criação de sala para reutilizar seu
+    // layout e esconder apenas elementos não pertinentes aos jogadores.
+    createRoomCard.classList.remove('hidden');
+    // Esconde o botão de criar nova sala (somente host pode criar)
+    createRoomBtn.classList.add('hidden');
+    // Oculta o formulário de entrada após o jogador se registrar
     joinRoomCard.classList.add('hidden');
+    // Oculta o botão de iniciar partida (apenas host vê)
     startGameBtn.classList.add('hidden');
-    // Exibe a lista de jogadores e um aviso de espera no cartão do host
+    // Exibe os detalhes da sala (código, QR/link e lista de jogadores)
     roomDetails.classList.remove('hidden');
     roomCodeDisplay.textContent = roomId;
     // Atualiza o link de convite para copiar facilmente
@@ -873,12 +890,12 @@ async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit 
       joinLinkEl.href = joinUrl;
       joinLinkEl.textContent = joinUrl;
     }
-    // Mostra mensagem de espera
+    // Mostra mensagem de espera inicial
     playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
     // Observa lista de jogadores em tempo real para atualizar nomes
     onValue(ref(db, `rooms/${roomId}/players`), snapPlayers => {
       const players = snapPlayers.val() || {};
-      // Reconstrói a lista
+      // Reconstrói a lista de jogadores
       playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
       Object.values(players).forEach(p => {
         const row = document.createElement('div');
