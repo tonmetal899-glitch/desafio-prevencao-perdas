@@ -439,12 +439,20 @@ class Game {
    */
   showWinnerAnimation(winnerName) {
     this.winnerAnimation.innerHTML = '';
-    // Cria texto do vencedor
+    // Limpa qualquer conteúdo existente
+    // Cria troféu e título do vencedor
+    const trophy = document.createElement('img');
+    trophy.src = 'assets/img/trophy.svg';
+    trophy.alt = 'Troféu do vencedor';
+    trophy.className = 'trophy-icon';
+    this.winnerAnimation.appendChild(trophy);
+
     const title = document.createElement('h2');
     title.textContent = `Parabéns, ${winnerName}!`;
     title.style.textAlign = 'center';
     title.style.color = 'var(--color-primary)';
     this.winnerAnimation.appendChild(title);
+
     // Gera confetes
     const colors = ['#FFC107', '#1976D2', '#4CAF50', '#E53935'];
     for (let i = 0; i < 80; i++) {
@@ -465,29 +473,32 @@ class Game {
    * @param {boolean} correct Indica se a resposta foi correta.
    */
   playSound(correct) {
-    /*
-     * Reproduz um acorde harmônico para feedback das respostas.
-     * Para respostas corretas usamos um acorde maior de Mi (E4–G#4–B4).
-     * Para respostas erradas usamos um acorde menor de Dó (C4–Eb4–G4).
-     * Esses acordes são mais agradáveis que bipes simples e evitam
-     * ruídos irritantes. Cada nota toca por ~0,4s com volume moderado.
+    /**
+     * Ao invés de acordes simples, tocamos uma pequena sequência
+     * melódica para deixar o feedback mais expressivo. Para respostas
+     * corretas usamos uma escala ascendente (C5–E5–G5–C6) criando uma
+     * sensação de vitória. Para respostas erradas usamos uma sequência
+     * descendente em tons graves (A3–F3–D3) evocando erro. Cada nota
+     * dura 0,2s e começa com 0,15s de distância, resultando em um
+     * jingle curto e memorável.
      */
-    const freqs = correct
-      ? [329.63, 415.30, 493.88] // E4, G#4, B4
-      : [261.63, 311.13, 392.00]; // C4, Eb4, G4
+    const sequences = correct
+      ? [523.25, 659.25, 783.99, 1046.50] // C5, E5, G5, C6
+      : [220.00, 174.61, 146.83];        // A3, F3, D3
     if (!this.audioContext) {
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
     const ctx = this.audioContext;
-    const gain = ctx.createGain();
-    gain.gain.value = 0.18;
-    gain.connect(ctx.destination);
-    freqs.forEach(f => {
+    sequences.forEach((freq, index) => {
       const osc = ctx.createOscillator();
-      osc.frequency.value = f;
+      const gain = ctx.createGain();
+      osc.frequency.value = freq;
+      gain.gain.value = correct ? 0.25 : 0.2;
       osc.connect(gain);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.4);
+      gain.connect(ctx.destination);
+      const startTime = ctx.currentTime + index * 0.15;
+      osc.start(startTime);
+      osc.stop(startTime + 0.2);
     });
   }
 
@@ -835,9 +846,36 @@ async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit 
     joinRoomCard.classList.add('hidden');
     startGameBtn.classList.remove('hidden');
   } else {
-    // Jogadores não são host: ocultar botão de iniciar e formulário após enviar
+    // Jogadores: ocultar formulário de entrada e o botão iniciar
     joinRoomCard.classList.add('hidden');
     startGameBtn.classList.add('hidden');
+    // Exibe a lista de jogadores e um aviso de espera no cartão do host
+    roomDetails.classList.remove('hidden');
+    roomCodeDisplay.textContent = roomId;
+    // Atualiza o link de convite para copiar facilmente
+    const joinUrl =
+      window.location.origin +
+      window.location.pathname +
+      '?room=' +
+      roomId;
+    const joinLinkEl = document.getElementById('join-link');
+    if (joinLinkEl) {
+      joinLinkEl.href = joinUrl;
+      joinLinkEl.textContent = joinUrl;
+    }
+    // Mostra mensagem de espera
+    playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
+    // Observa lista de jogadores em tempo real para atualizar nomes
+    onValue(ref(db, `rooms/${roomId}/players`), snapPlayers => {
+      const players = snapPlayers.val() || {};
+      // Reconstrói a lista
+      playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
+      Object.values(players).forEach(p => {
+        const row = document.createElement('div');
+        row.textContent = `${p.name} (${p.unidade})`;
+        playersListEl.appendChild(row);
+      });
+    });
   }
 }
 
