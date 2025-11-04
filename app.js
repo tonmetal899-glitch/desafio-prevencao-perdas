@@ -465,6 +465,23 @@ class Game {
       confetti.style.opacity = (0.7 + Math.random() * 0.3).toString();
       this.winnerAnimation.appendChild(confetti);
     }
+
+    // Adiciona alguns fogos de artifício ao redor do troféu. Cada fogo é
+    // um círculo radial que expande e desaparece. Escolhemos posições
+    // aleatórias dentro do contêiner de animação para dar sensação de
+    // explosão. O CSS `.firework` define a animação de expansão.
+    const fireworkCount = 8;
+    for (let i = 0; i < fireworkCount; i++) {
+      const fw = document.createElement('div');
+      fw.classList.add('firework');
+      // Distribui os fogos ao redor do centro (troféu) com valores aleatórios
+      const offsetX = (Math.random() * 60) - 30; // -30% a 30%
+      const offsetY = (Math.random() * 40) - 20; // -20% a 20%
+      // Posiciona relativamente ao centro do contêiner
+      fw.style.left = `calc(50% + ${offsetX}% )`;
+      fw.style.top = `calc(50% + ${offsetY}% )`;
+      this.winnerAnimation.appendChild(fw);
+    }
   }
 
   /**
@@ -826,29 +843,72 @@ joinForm.addEventListener('submit', async e => {
  * @param {string} [unit]
  */
 async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit = '') {
+  // Instancia a sala localmente para que possamos interagir com o banco
   currentRoom = new Room(roomId);
-  // Verifica se sala existe
+  // Verifica se a sala existe no Realtime Database
   const snap = await get(ref(db, `rooms/${roomId}`));
   if (!snap.exists()) {
     alert('Sala não encontrada');
     return;
   }
   const roomData = snap.val();
+  // Verifica se o usuário é host comparando hostId com o UID atual
   isHost = roomData.hostId === currentPlayerId;
-  // Adiciona ou atualiza jogador
+  // Se deve registrar o jogador, adiciona-o na lista de players da sala
   if (registerPlayer) {
     await currentRoom.addPlayer(currentPlayerId, name, unit);
+    // Armazena no localStorage para permitir reconexão
     localStorage.setItem('preventionQuiz', JSON.stringify({ roomId, playerId: currentPlayerId }));
   }
-  // Observa mudanças de status
+
+  // Ajuste imediato do lobby baseado no papel do usuário (host ou jogador)
+  if (isHost) {
+    // O host não vê o formulário de entrada e pode iniciar a partida
+    joinRoomCard.classList.add('hidden');
+    // Exibe detalhes da sala (código, QR/link e lista) e botão de iniciar
+    roomDetails.classList.remove('hidden');
+    startGameBtn.classList.remove('hidden');
+    // Oculta botão de criar nova sala para evitar múltiplas salas
+    createRoomBtn.classList.add('hidden');
+    // Atualiza código e link de convite
+    roomCodeDisplay.textContent = roomId;
+    const joinUrl = window.location.origin + window.location.pathname + '?room=' + roomId;
+    const joinLinkEl = document.getElementById('join-link');
+    if (joinLinkEl) {
+      joinLinkEl.href = joinUrl;
+      joinLinkEl.textContent = joinUrl;
+    }
+  } else {
+    // Jogador: mostra cartão da sala com código e link para aguardar host
+    // Oculta criação de sala e formulário de ingresso
+    createRoomBtn.classList.add('hidden');
+    joinRoomCard.classList.add('hidden');
+    // Reutiliza o cartão de criação para exibir código, link e lista de jogadores
+    createRoomCard.classList.remove('hidden');
+    roomDetails.classList.remove('hidden');
+    // Oculta o botão de iniciar (apenas host vê)
+    startGameBtn.classList.add('hidden');
+    // Define código e link para a sala
+    roomCodeDisplay.textContent = roomId;
+    const joinUrl = window.location.origin + window.location.pathname + '?room=' + roomId;
+    const joinLinkEl = document.getElementById('join-link');
+    if (joinLinkEl) {
+      joinLinkEl.href = joinUrl;
+      joinLinkEl.textContent = joinUrl;
+    }
+    // Mensagem inicial até que jogadores sejam listados
+    playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
+  }
+
+  // Observa mudanças de status da sala para iniciar/finalizar a partida
   onValue(ref(db, `rooms/${roomId}/status`), snapshot => {
     const status = snapshot.val();
     if (status === 'in_progress' && !currentGame) {
-      // Começou o jogo - inicia instância para jogador
+      // Quando o jogo inicia, troca para a seção de perguntas
       document.getElementById('lobby').classList.add('hidden');
       document.getElementById('game').classList.remove('hidden');
       currentGame = new Game(currentRoom, currentPlayerId, isHost);
-      // Escuta scoreboard
+      // Passa a observar placar em tempo real para atualização durante o jogo
       onValue(ref(db, `rooms/${roomId}/players`), snapPlayers => {
         currentGame.updateScoreboard(snapPlayers.val());
       });
@@ -858,52 +918,19 @@ async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit 
     }
   });
 
-  // Ajusta exibição no lobby com base no papel do usuário
-  if (isHost) {
-    // Host não precisa ver o formulário de ingresso e pode iniciar a partida
-    joinRoomCard.classList.add('hidden');
-    startGameBtn.classList.remove('hidden');
-  } else {
-    // Jogadores: mostram o cartão da sala (com código, link e lista) e
-    // aguardam o host iniciar. O botão de criação de sala e o botão de
-    // iniciar partida são ocultados para evitar ações indevidas.
-    // Primeiro, exibimos o cartão de criação de sala para reutilizar seu
-    // layout e esconder apenas elementos não pertinentes aos jogadores.
-    createRoomCard.classList.remove('hidden');
-    // Esconde o botão de criar nova sala (somente host pode criar)
-    createRoomBtn.classList.add('hidden');
-    // Oculta o formulário de entrada após o jogador se registrar
-    joinRoomCard.classList.add('hidden');
-    // Oculta o botão de iniciar partida (apenas host vê)
-    startGameBtn.classList.add('hidden');
-    // Exibe os detalhes da sala (código, QR/link e lista de jogadores)
-    roomDetails.classList.remove('hidden');
-    roomCodeDisplay.textContent = roomId;
-    // Atualiza o link de convite para copiar facilmente
-    const joinUrl =
-      window.location.origin +
-      window.location.pathname +
-      '?room=' +
-      roomId;
-    const joinLinkEl = document.getElementById('join-link');
-    if (joinLinkEl) {
-      joinLinkEl.href = joinUrl;
-      joinLinkEl.textContent = joinUrl;
-    }
-    // Mostra mensagem de espera inicial
-    playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
-    // Observa lista de jogadores em tempo real para atualizar nomes
-    onValue(ref(db, `rooms/${roomId}/players`), snapPlayers => {
-      const players = snapPlayers.val() || {};
-      // Reconstrói a lista de jogadores
-      playersListEl.innerHTML = '<p>Aguardando início da partida…</p>';
+  // Observa lista de jogadores enquanto no lobby (antes de iniciar o jogo)
+  onValue(ref(db, `rooms/${roomId}/players`), snapPlayers => {
+    const players = snapPlayers.val() || {};
+    // Atualiza a lista de jogadores apenas para participantes (não host)
+    if (!isHost) {
+      playersListEl.innerHTML = '';
       Object.values(players).forEach(p => {
         const row = document.createElement('div');
         row.textContent = `${p.name} (${p.unidade})`;
         playersListEl.appendChild(row);
       });
-    });
-  }
+    }
+  });
 }
 
 // Botões de resultados
