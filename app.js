@@ -706,15 +706,39 @@ createRoomBtn.addEventListener('click', async () => {
     joinLinkEl.href = joinUrl;
     joinLinkEl.textContent = joinUrl;
   }
-  // Renderiza o QR Code correspondente ao link
-  new QRCode(document.getElementById('qrcode'), {
-    text: joinUrl,
-    width: 128,
-    height: 128,
-    colorDark: '#000000',
-    colorLight: '#ffffff',
-    correctLevel: QRCode.CorrectLevel.H
-  });
+  // Renderiza o QR Code correspondente ao link. Antes de gerar um novo
+  // código, limpe qualquer conteúdo existente no contêiner para evitar
+  // sobreposições. Em alguns ambientes (como GitHub Pages) o construtor
+  // `QRCode` pode não anexar automaticamente o canvas quando chamado com
+  // opções, portanto utilizamos o padrão "instanciar + makeCode" para
+  // garantir que a imagem seja gerada. Caso a biblioteca não esteja
+  // disponível por algum motivo, mantemos apenas o link textual.
+  const qrContainer = document.getElementById('qrcode');
+  if (qrContainer) {
+    qrContainer.innerHTML = '';
+    if (typeof QRCode === 'function') {
+      try {
+        const qr = new QRCode(qrContainer, {
+          width: 128,
+          height: 128,
+          colorDark: '#000000',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        // Alguns builds exigem a chamada explícita de makeCode() para
+        // desenhar o QR Code. Caso contrário, o construtor já utiliza
+        // a opção `text` para gerar o código.
+        if (typeof qr.makeCode === 'function') {
+          qr.makeCode(joinUrl);
+        }
+      } catch (err) {
+        console.error('Erro ao gerar QR Code:', err);
+      }
+    } else {
+      // Fallback: se a biblioteca não existir, não gera QR
+      console.warn('Biblioteca QRCode não encontrada');
+    }
+  }
   // Adiciona host como player
   await currentRoom.addPlayer(currentPlayerId, 'Host', '');
   localStorage.setItem('preventionQuiz', JSON.stringify({ roomId: currentRoom.roomId, playerId: currentPlayerId }));
