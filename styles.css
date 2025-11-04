@@ -288,6 +288,27 @@ button:active:not(:disabled) {
   100% { transform: translateY(150%) rotate(360deg); opacity: 0; }
 }
 
+/* === Fogos de artifício (fireworks) ===
+ * Cada fogo de artifício é um círculo radial que expande e desaparece.
+ * Eles são posicionados aleatoriamente em torno do troféu na tela final
+ * e animados via keyframes para criar um efeito de explosão.
+ */
+.firework {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary) 0%, #f5e663 40%, transparent 70%);
+  opacity: 0.8;
+  animation: firework-burst 1.2s ease-out forwards;
+}
+
+@keyframes firework-burst {
+  0% { transform: scale(0.2); opacity: 1; }
+  80% { transform: scale(6); opacity: 0.8; }
+  100% { transform: scale(6); opacity: 0; }
+}
+
 /* Ícone do troféu mostrado no final da partida */
 .trophy-icon {
   display: block;
