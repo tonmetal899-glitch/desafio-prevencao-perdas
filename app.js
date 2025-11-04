@@ -492,26 +492,32 @@ class Game {
    * @param {number} seconds Restantes (inteiro)
    */
   playTimerWarning(seconds) {
-    // O aviso no cronômetro utiliza frequências diferentes para criar
-    // sensação de urgência: tons mais graves nos primeiros segundos e
-    // mais agudos nos últimos 2 segundos. Tocamos duas notas curtas
-    // formando uma pequena melodia a cada segundo restante.
-    const freqs = seconds <= 2 ? [880, 988] : [523.25, 659.25];
+    /*
+     * Este método produz uma pequena melodia para os últimos segundos do
+     * cronômetro, em vez de um beep simples. Quando restam mais de 2
+     * segundos, tocamos um acorde mediano (Dó maior) com três notas
+     * (C5=523 Hz, E5=659 Hz, G5=784 Hz). Nos últimos dois segundos,
+     * aumentamos a tensão com notas mais agudas (A5=880 Hz, C6≈1046 Hz,
+     * E6≈1319 Hz). Cada nota começa com um intervalo de 100 ms para
+     * criar um ritmo e o volume é suavizado para não incomodar.
+     */
+    const freqs = seconds <= 2
+      ? [880.00, 1046.50, 1318.51]
+      : [523.25, 659.25, 783.99];
     if (!this.audioContext) {
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
     const ctx = this.audioContext;
     const gain = ctx.createGain();
-    gain.gain.value = 0.12;
+    gain.gain.value = 0.15;
     gain.connect(ctx.destination);
     freqs.forEach((f, idx) => {
       const osc = ctx.createOscillator();
       osc.frequency.value = f;
       osc.connect(gain);
-      // Inicia cada oscilador com pequeno atraso para criar ritmo.
-      const startTime = ctx.currentTime + idx * 0.05;
+      const startTime = ctx.currentTime + idx * 0.1;
       osc.start(startTime);
-      osc.stop(startTime + 0.2);
+      osc.stop(startTime + 0.25);
     });
   }
 
