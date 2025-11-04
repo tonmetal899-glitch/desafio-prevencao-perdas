@@ -295,6 +295,26 @@ button:active:not(:disabled) {
   width: 80px;
   height: 80px;
   margin-bottom: 0.5rem;
+  /* Animação de pulso para dar vida ao troféu durante a
+     celebração final. O troféu cresce e gira levemente em um
+     ciclo contínuo, atraindo atenção para o vencedor. */
+  animation: trophy-pulse 2s ease-in-out infinite;
+}
+
+/* Animação aplicada ao troféu durante o anúncio do vencedor */
+@keyframes trophy-pulse {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(-5deg);
+    opacity: 0.8;
+  }
 }
 
 /* Acessibilidade: classe para esconder elementos visualmente mas mantê-los para leitores de tela */
