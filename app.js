@@ -855,10 +855,16 @@ async function joinExistingRoom(roomId, registerPlayer = false, name = '', unit 
   // Verifica se o usuário é host comparando hostId com o UID atual
   isHost = roomData.hostId === currentPlayerId;
   // Se deve registrar o jogador, adiciona-o na lista de players da sala
-  if (registerPlayer) {
+  // Somente participantes (não hosts) precisam ser registrados; o host já
+  // está cadastrado no momento da criação da sala. Essa verificação evita
+  // duplicidade e garante que o host não seja substituído.
+  if (registerPlayer && !isHost) {
     await currentRoom.addPlayer(currentPlayerId, name, unit);
-    // Armazena no localStorage para permitir reconexão
-    localStorage.setItem('preventionQuiz', JSON.stringify({ roomId, playerId: currentPlayerId }));
+    // Armazena no localStorage para permitir reconexão em partidas futuras
+    localStorage.setItem(
+      'preventionQuiz',
+      JSON.stringify({ roomId, playerId: currentPlayerId })
+    );
   }
 
   // Ajuste imediato do lobby baseado no papel do usuário (host ou jogador)
