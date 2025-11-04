@@ -35,8 +35,12 @@
         <button id="create-room-btn" class="primary">Criar Nova Sala</button>
         <div id="room-details" class="hidden" aria-live="polite">
           <p>Compartilhe o código ou o QR Code abaixo:</p>
-          <p><strong id="room-code-display" aria-label="Código da sala"></strong></p>
-          <div id="qrcode"></div>
+              <p><strong id="room-code-display" aria-label="Código da sala"></strong></p>
+              <div id="qrcode"></div>
+              <!-- Exibe o link para ingressar na sala. O texto e o href são
+                   preenchidos via app.js quando a sala é criada. O link abre em
+                   nova aba para facilitar o compartilhamento em mensageiros. -->
+              <p><a id="join-link" href="#" target="_blank" rel="noopener noreferrer"></a></p>
           <label for="question-count">Nº de perguntas:</label>
           <select id="question-count" aria-label="Número de perguntas">
             <option value="10">10</option>
