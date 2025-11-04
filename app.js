@@ -743,11 +743,21 @@ createRoomBtn.addEventListener('click', async () => {
           qr.makeCode(joinUrl);
         }
       } catch (err) {
+        // Se ocorrer qualquer erro na geração com a biblioteca local,
+        // utilize um serviço externo para gerar a imagem do QR Code.
         console.error('Erro ao gerar QR Code:', err);
+        qrContainer.innerHTML =
+          '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' +
+          encodeURIComponent(joinUrl) +
+          '&size=128x128" alt="QR Code" />';
       }
     } else {
-      // Fallback: se a biblioteca não existir, não gera QR
+      // Fallback: se a biblioteca não existir, gera imagem QR via API pública.
       console.warn('Biblioteca QRCode não encontrada');
+      qrContainer.innerHTML =
+        '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' +
+        encodeURIComponent(joinUrl) +
+        '&size=128x128" alt="QR Code" />';
     }
   }
   // Adiciona host como player
