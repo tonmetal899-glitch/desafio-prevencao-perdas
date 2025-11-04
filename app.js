@@ -746,39 +746,20 @@ createRoomBtn.addEventListener('click', async () => {
   // disponível por algum motivo, mantemos apenas o link textual.
   const qrContainer = document.getElementById('qrcode');
   if (qrContainer) {
-    qrContainer.innerHTML = '';
-    if (typeof QRCode === 'function') {
-      try {
-        const qr = new QRCode(qrContainer, {
-          width: 128,
-          height: 128,
-          colorDark: '#000000',
-          colorLight: '#ffffff',
-          correctLevel: QRCode.CorrectLevel.H
-        });
-        // Alguns builds exigem a chamada explícita de makeCode() para
-        // desenhar o QR Code. Caso contrário, o construtor já utiliza
-        // a opção `text` para gerar o código.
-        if (typeof qr.makeCode === 'function') {
-          qr.makeCode(joinUrl);
-        }
-      } catch (err) {
-        // Se ocorrer qualquer erro na geração com a biblioteca local,
-        // utilize um serviço externo para gerar a imagem do QR Code.
-        console.error('Erro ao gerar QR Code:', err);
-        qrContainer.innerHTML =
-          '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' +
-          encodeURIComponent(joinUrl) +
-          '&size=128x128" alt="QR Code" />';
-      }
-    } else {
-      // Fallback: se a biblioteca não existir, gera imagem QR via API pública.
-      console.warn('Biblioteca QRCode não encontrada');
-      qrContainer.innerHTML =
-        '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' +
-        encodeURIComponent(joinUrl) +
-        '&size=128x128" alt="QR Code" />';
-    }
+    /*
+     * Para garantir que o código QR seja sempre renderizado, utilizamos
+     * diretamente um serviço externo de geração. Durante nossos testes,
+     * identificamos que a biblioteca local (QRCode.js) nem sempre funcionava
+     * ao ser carregada via GitHub Pages, possivelmente por questões de
+     * escopo global ou minificação. Ao optar pelo serviço HTTP, a imagem
+     * é gerada de forma confiável e sem depender de scripts adicionais. Se
+     * desejar voltar a usar a biblioteca local, remova esta atribuição e
+     * reintroduza a lógica condicional anterior.
+     */
+    qrContainer.innerHTML =
+      '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' +
+      encodeURIComponent(joinUrl) +
+      '&size=128x128" alt="QR Code" />';
   }
   // Adiciona host como player
   await currentRoom.addPlayer(currentPlayerId, 'Host', '');
