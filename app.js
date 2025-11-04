@@ -692,7 +692,14 @@ createRoomBtn.addEventListener('click', async () => {
   roomCodeDisplay.textContent = currentRoom.roomId;
   roomDetails.classList.remove('hidden');
   // Gera QR Code do link para ingressar e atualiza o link textual
-  const joinUrl = `${window.location.origin}${window.location.pathname}?room=${currentRoom.roomId}`;
+  // Constrói o link manualmente para evitar que o template literal seja quebrado
+  // em múltiplas linhas durante a minificação/empacotamento. Usar concatenação
+  // simples garante que o código e a query apareçam corretamente.
+  const joinUrl =
+    window.location.origin +
+    window.location.pathname +
+    '?room=' +
+    currentRoom.roomId;
   // Preenche o elemento de link para permitir que o host compartilhe o endereço
   const joinLinkEl = document.getElementById('join-link');
   if (joinLinkEl) {
