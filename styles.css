@@ -288,6 +288,15 @@ button:active:not(:disabled) {
   100% { transform: translateY(150%) rotate(360deg); opacity: 0; }
 }
 
+/* Ícone do troféu mostrado no final da partida */
+.trophy-icon {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.5rem;
+}
+
 /* Acessibilidade: classe para esconder elementos visualmente mas mantê-los para leitores de tela */
 .sr-only {
   position: absolute;
